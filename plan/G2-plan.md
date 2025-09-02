@@ -4,6 +4,10 @@ Guatemala "G2"
 
 150 gm
 
+UPDATES:
+ - ROR (F) would be 25/10/5
+ - ROR (C) would be 10/5/2
+
 
 Plan:
 
