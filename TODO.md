@@ -7,6 +7,10 @@ Things to change or improve with roaster and process:
  - Add thermocouple to roasating chamber output for ET reading.
  - Add thermocouple to cooling tray area.
 
+ - use Smart Plug to measure Power used by roaster during sessions.
+   * use shared NTP time reference.
+
+
 Artisan data:
 
  - Learn Curve design, PID settings in Artisan.
