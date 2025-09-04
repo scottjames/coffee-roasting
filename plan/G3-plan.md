@@ -1,42 +1,50 @@
 
 ## Guatemala "G3"  Plan
 
-Batch:  150 gm
-Target: medium roast, drop 203c, 10:00 mins.
+NOTE:::  SEE GOOGLE SHEET "COFFEE ROASTING PLAN"
 
-Development Time Ratio (DTR):  50 / 35 / 15
+
+
+Batch:  150 gm
+Target: medium roast, drop 202c, 10:00 mins.
+
+Development Time Ratio (DTR):  50 / 35 / 15 => 5:00 / 3:30 / 1:30
 
 
 ### NOTES:
  - ROR ('C) steps: 10 / 5 / 2
- - Fan low during preheat
- - Fan set 30 for roast (blow out smoke, chaff)
- - Fan set 100 at DUMP, for cooling machine
+ - AIR=20 during preheat
+ - AIR=30 for roast (blow out smoke, chaff)
+ - AIR=100 at DUMP, for cooling machine
 
 ### Plan:
 
- - PREHT 0:00  ~120c  set 80..30/10       about 5 mins
+ - PREHT 0:00  =150c  set 80..30/20       preheat ~5 mins
 
- - SOAK  0:00  ~120c  set 30/20  ROR=1    low heat, soak
- - CHRG  0:00  ~120c
+ -       0:00  ~150c                      click 'START', ~`15 secs before charge.
 
- -       0:30  ~100c  set 70/30  ROR=7    Add heat and fan
+ - CHRG  0:00  =150c
 
- -       1:00  ~100c  set 80/30  ROR=10   increase heat... get ROR=10
+ - SOAK  0:00  =150c  set 30/20  ROR=1    low heat, soak
 
- - TP    1:30  ~ 90c  set 80/30  ROR=9    (DRY Start)
+ -       0:30   100c  set 70/30  ROR=7    Add heat and fan
 
- -       3:00  ~130c  set 60/30  ROR=7
+ -       1:00   100c  set 80/30  ROR=10   increase heat... get ROR=10
 
- - DE    4:30  ~150c  set 40/30  ROR=5
+ - TP    1:30   120c  set 80/30  ROR=9    (DRY Start) ROR <= 10
 
- - FCS  ~7:00  ~175c  set 20/30  ROR=2    (brn 10c) less heat, less fan
+ -       3:00   130c  set 60/30  ROR=7    less heat, reduce ROR
 
- - FCE  ~8:00  ~185c  set 20/30  ROR=2    (brn 10c)
+ - DE    5:00   150c  set 40/30  ROR=5    ROR <= 5
 
- -       8:30                             "cool on"
- 
- - DROP  9:00  ~200c  set 0/100  ROR=2    (dev 25%), no heat, full fan. cool.
+ - FCS   8:30   175c  set 20/30  ROR=2    (brn 10c) less heat, less fan.  ROR <= 2
+
+ - FCE   9:00   185c  set 20/30  ROR=2    (brn 10c)
+
+ -       9:30  =195                       "cool on"
+ -       9:45  =195c  set 0/100  ROR=2    (dev 25%), no heat, full fan. cool.
+
+ - DROP 10:00  =200c                      set wood block.
 
 
 
