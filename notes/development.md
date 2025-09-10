@@ -31,6 +31,9 @@
  - For a complex, dark/heavy coffee: roast slower and lower
 
 
+https://chatgpt.com/share/68ba421b-fd20-800b-9ff2-589d5f38f90c
+
+
 ## Notes on DTR
 
  - https://millcityroasters.com/blogs/coffee-articles/whats-the-best-development-time-dtr-and-finish-temperature
