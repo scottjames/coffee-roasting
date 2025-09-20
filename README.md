@@ -15,7 +15,12 @@ This repo keeps my config file and logs of coffee roasted.
 
 NOTE: (Roast # 1 - 6 are not available)
 
- - ![Roast 6 - Guatemala "dark"](logs/img/roast_25-09-20_1158.png)
- - ![Roast 7 - Guatemala "medium"](logs/img/roast_25-09-20_1215.png)
- - ![Roast 8 - Guatemala "light"](logs/img/roast_25-09-20_1234.png)
+### Roast 7 - Guatemala "dark"
+ - ![Roast 7](logs/img/roast_25-09-20_1158.png)
+
+### Roast 8 - Guatemala "medium"
+ - ![Roast 8](logs/img/roast_25-09-20_1215.png)
+
+### Roast 9 - Guatemala "light"
+ - ![Roast 9](logs/img/roast_25-09-20_1234.png)
 
