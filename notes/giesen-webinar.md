@@ -3,7 +3,7 @@
 
 ## Roasting a light roast (Willem Boot)
 
- - https://www.youtube.com/watch?v=obk5cEXuJWk
+ - [Light Roast](https://www.youtube.com/watch?v=obk5cEXuJWk)
  - flaws: brazilian, can be peanut; kenya, sour unripe green tomato
  - flaws: sumatra malty earthy; panama thin and no flavor
  - steps for roasting light:
@@ -19,12 +19,12 @@
  - batch charge is 50% is faster (too much heat for bean mass in drum)
  - timing/settings different on large/small models.
  - longer roast, could stall/bake roast.
- - ROR low (2) can devel slowly, vs. high (20) risk baking beans.
+ - **HIGH ROR** ROR low (2) can devel slowly, vs. high (20) *risk baking beans* 
  - Devel time: FC -> Drop.
- - FC usually at specific temperature (per machine/bean)
+ - FC usually at specific temperature (per machine/bean), good reference point.
  - Devel flavor specific to % Devel and bean;
  - **NOTE** ROR lower prior to FCs to avoid pyrolysis (self heating)
- - faster roast can vary flavor/colors, slower is better.
+ - faster roast can have high variance of flavor/colors, slower is better.
  - Light #1: DTR: 33/40/35  over 8:30; Not Good: grain/earthy/wet wood
  - Light #2: DTR: 40/38/22  over 8:30; Better: fruit/citrus/grain/wood
  - Light #3: DTR: 43/42/16  over 10:35; Best; fruit/citrus/orange/floral

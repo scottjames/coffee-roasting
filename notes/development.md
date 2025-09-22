@@ -79,11 +79,12 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - Measure air flow with magnahelic flow meter. Adjust airflow to constant volume (for weather effects)
  - Consistency? +/- 10 secs for target times (FCs), and +/- 2 'C; Agtron +/- 3; Weight Loss +/- 0.25% (more than 0.5% is way different color/flavor)
  - BT probe is actually Bean + Air temp.
- - Flavor is 80% color, dev 10% FC time 10%
+ - Flavor is from: 80% color, devel 10%, FC time 10%
  - *ALWAYS* take weight loss measurement (ITS FREE!) and very insightful.
  - Weight Loss: Too Light <11%; Light 11-13%; Med 14-16%; Dark 17-18%; Very Dark 19-21%; Too Dark >21%
  - Color sensors: further from sample are "lighter" read, closer = Darker read.  Distance matters.
- - Color readings for Whole Bean "WB" maybe 34, but Ground "GR" might be 104 colors - measure both. Grind consistent setting.
+ - Color readings for Whole Bean "WB" maybe 34, but Ground "GR" might be 104 colors - measure both.
+ - Always use consistent Grind setting, it can vary the GR color.
  - Every brew is a chance to rate the flavor. Rotate brewing through all beans, not just favorites.
  - Measure post-grind. Grind particle size distribution, color.
  - Industry uses 16:1 cupping ratio (water:coffee) (instead of 18:1) -- keep consistent ratio.
