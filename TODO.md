@@ -4,11 +4,14 @@
 Things to change or improve with roaster and process:
 
  - Upgrade BT sensor to proper thermocouple with I2C.
- - Add thermocouple to roasating chamber output for ET reading.
+ - Add thermocouple to roasating chamber output for ET (outlet) reading.
+ - Add thermocouple to roasating chamber input for ET (inlet) reading.
  - Add thermocouple to cooling tray area.
 
  - use Smart Plug to measure Power used by roaster during sessions.
    * use shared NTP time reference.
+
+ - update drum motor for adjustable RPM (up to 150 RPM)
 
 
 Artisan data:

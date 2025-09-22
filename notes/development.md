@@ -60,7 +60,36 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - software cropster.com added AI prediction for "crash and flick" after FCS.
  - it's the 'flick' causing Roasty flavors, not high DTR.
 
-
+## Rob Hoos on Roasting
+ - Rob Hoos -- https://www.youtube.com/watch?v=GaxiRQ5BxWs
+ - Coffee is the business of Flavor. Keep it consistent and good.
+ - Moisture requires more energy to crack. (11-12% is high)
+ - Low Alt has more Tipping vs High Altitude.
+ - High Alt has more sugar, more acidity in general.
+ - High Density can usually take more heat faster.
+ - Air flow temp good indicator of things are properly set.
+ - Preheat long time to let metal parts heat up (not just air temp).
+ - Lower Drum speed (beans lay on metal longer) Lower RPM = longer roast + scorching.
+ - Faster Dump speed, faster heat effects beans faster (speed up profile)
+ - Too fast bean stay stuck to drum wall.
+ - Set RPM constant for your style, dont change during roast. set and forget.
+ - Airflow, set and forget. However, can be useful (if cold day, less input)
+ - Airflow 25% heavy scorching. 50% faster, 75% or 100% roast fastest.
+ - Good: Air 50% until max ROR, then 100% Air for ROR bump, then slow air until FCs.
+ - Measure air flow with magnahelic flow meter. Adjust airflow to constant volume (for weather effects)
+ - Consistency? +/- 10 secs for target times (FCs), and +/- 2 'C; Agtron +/- 3; Weight Loss +/- 0.25% (more than 0.5% is way different color/flavor)
+ - BT probe is actually Bean + Air temp.
+ - Flavor is 80% color, dev 10% FC time 10%
+ - *ALWAYS* take weight loss measurement (ITS FREE!) and very insightful.
+ - Weight Loss: Too Light <11%; Light 11-13%; Med 14-16%; Dark 17-18%; Very Dark 19-21%; Too Dark >21%
+ - Color sensors: further from sample are "lighter" read, closer = Darker read.  Distance matters.
+ - Color readings for Whole Bean "WB" maybe 34, but Ground "GR" might be 104 colors - measure both. Grind consistent setting.
+ - Every brew is a chance to rate the flavor. Rotate brewing through all beans, not just favorites.
+ - Measure post-grind. Grind particle size distribution, color.
+ - Industry uses 16:1 cupping ratio (water:coffee) (instead of 18:1) -- keep consistent ratio.
+ - Measure total disolved solids (TDS) and solubility (for lab metrics)
+ - Provide brewing instructions/guides along with coffee (help people get best flavor)
+ - 
 
 
 
