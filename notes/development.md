@@ -100,10 +100,11 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - Sometimes SC starts, and we think it's FC continuing - runaway momentum.
  - Very Dark roast swells up very Large beans.
  - Increase air flow as emergency brake to slow down runaway temp rise.
- - ET shows thermal runaway, want slow gentle slope.
+ - Dont start with 100% air, no room to increase later.
+ - ET shows thermal runaway, want slow gentle linear slope [SJ: glide slope].
  - Plan the Dry phase, with intentional actions.
 
- - About turning point https://www.youtube.com/watch?v=Mu9vbybQLUc
+ - About Turning Point - https://www.youtube.com/watch?v=Mu9vbybQLUc
  - TP affected by Ambient temp, Charge amount.
  - Notice TP Time and Temp - both useful.
  - Charge temp choice validation (based on Ambient temp)
@@ -122,10 +123,10 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - **GOOD TIPS FOR PLANNING**
  - longer time in BRN phase makes even thorough flavor profile (2,3,4 mins)
  - Flavor influenced by: 1) Color, 2) FC time, 3) DEV time
- - Charge Temp: (around 150C - 200C) bean density, total roast duration, time for FC
+ - Charge Temp: (around 150C - 200C) depends on: bean density, total roast duration, time for FC
  - 400 gm beans, medium density, use 170C charge temp. for 5:15 to DE
- - **MEASURE PRIOR DE** to figure out DE profile for charge temp.
- - target FC around 2x DE time: (5:00 DE, then 10:00 FC) + 2 mins DEVEL, 12:00 total
+ - **MEASURE PRIOR ROAST DE** to figure out DE profile for charge temp.
+ - **target FC around 2x DE time** (5:00 DE, then 10:00 FC) + 2 mins DEVEL, 12:00 total
  - Color: medium, drop ~200c.
  - Preheat roaster 10+ mins.
 
@@ -133,7 +134,6 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - Fresh Roast to do 180 gm beans (same beans as above)
  - Target 3:00 DE, 7:00 FC, 9:00 DROP; Medium Roast, 15% loss weight.
  - Air roaster, can lower 2 mins (Convection Air faster than conduction in drum)
- - 
 
 
 
