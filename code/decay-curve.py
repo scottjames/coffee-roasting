@@ -1,8 +1,27 @@
+#!/usr/bin/env python3
 
+# Add to Artisan Scope the ability to calculate Cooling "Decay Curve" during CHG -> TP
+# - Use these numerical metrics to characterize: 
+#   * Heat in the machine (preheated enough? Time Between Batch "TBB")
+#   * Charge size - mass & density of beans have bigger swing in curve
+#   * Charge temp - high/low temp might affect curve decay, will affect TP temp (Ttp)
+#
+# NOTE: Best to keep constant heat/air inputs after CHG until TP
+#
+# Calculate metrics that describe this cooling curve:
+#
+#  #1 - "Decay Constant k" - rate of cooling after CHARGE
+#  #2 - "Half Life" time since CHG for temp to reach (Tchg - Ttp) / 2
+#  #3 - "Time Constant" time since CHG for temp to reach (Tchg - Ttp) * 0.368
+#  #4 - "Initial Value y0" - Tchg (charge temperature)
+#  #5 - "Baseline C" - the Ttp (turning point temp)
+#  #6 - "AUC" - area under curve from CHG to TP
+#
 # pass in a set of data points (t,y)(t,y), and it will:
 #  - Fit an exponential decay model (with or without baseline).
 #  - Extract y0, k, C.
 #  - Compute half-life, time constant, and AUC.
+#
 
 
 import numpy as np
