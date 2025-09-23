@@ -90,7 +90,53 @@ It's not catching a speeding bullet. It’s catching an accelerating bullet.
  - Industry uses 16:1 cupping ratio (water:coffee) (instead of 18:1) -- keep consistent ratio.
  - Measure total disolved solids (TDS) and solubility (for lab metrics)
  - Provide brewing instructions/guides along with coffee (help people get best flavor)
+
+## Mike at Virtual Coffee Lab
+
+ - https://www.youtube.com/watch?v=0sDGXYvQBk0
+ - Early FC is evidence of Roasting going too fast. Run away roast!
+ - if FC starts at lower temp, it's runaway momentum.
+ - Drying Phase sets up momentum and pace for roast - it is important.
+ - Sometimes SC starts, and we think it's FC continuing - runaway momentum.
+ - Very Dark roast swells up very Large beans.
+ - Increase air flow as emergency brake to slow down runaway temp rise.
+ - ET shows thermal runaway, want slow gentle slope.
+ - Plan the Dry phase, with intentional actions.
+
+ - About turning point https://www.youtube.com/watch?v=Mu9vbybQLUc
+ - TP affected by Ambient temp, Charge amount.
+ - Notice TP Time and Temp - both useful.
+ - Charge temp choice validation (based on Ambient temp)
+ - How beans response to heat - high vs. low density, moving quick/slowly.
+ - Notice roasting defects, scorching, tipping.
+ - Slope of curve could be useful [SJ]
+ - Indicates bean density.
+ - Second chance to correct - notice TP if bean is fast/slow. indicates heat adjustments.
+ - Notice TP difference in consecutive roasts (background previous roast).
+ - Suggests Dry End behavior and FC. Washed Dense coffee ~30sec, Dry Process Low Density is faster.
+ - Suggests FC behavior: fast/slow, heavy/light
+ - Reveals pace of the roast, both indicator and control. high/low TP temp means fast/slow roast time.
+ - Want to avoid fast under-devel (bitter), and long slow over-devel (flat).
+
+ - Putting together a coffee roasting plan https://www.youtube.com/watch?v=-7Z3fAIvs7U
+ - **GOOD TIPS FOR PLANNING**
+ - longer time in BRN phase makes even thorough flavor profile (2,3,4 mins)
+ - Flavor influenced by: 1) Color, 2) FC time, 3) DEV time
+ - Charge Temp: (around 150C - 200C) bean density, total roast duration, time for FC
+ - 400 gm beans, medium density, use 170C charge temp. for 5:15 to DE
+ - **MEASURE PRIOR DE** to figure out DE profile for charge temp.
+ - target FC around 2x DE time: (5:00 DE, then 10:00 FC) + 2 mins DEVEL, 12:00 total
+ - Color: medium, drop ~200c.
+ - Preheat roaster 10+ mins.
+
+ - Bold Roast without the Char  https://www.youtube.com/watch?v=AFeiYj5oqKU
+ - Fresh Roast to do 180 gm beans (same beans as above)
+ - Target 3:00 DE, 7:00 FC, 9:00 DROP; Medium Roast, 15% loss weight.
+ - Air roaster, can lower 2 mins (Convection Air faster than conduction in drum)
  - 
+
+
+
 
 
 
