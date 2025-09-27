@@ -1,5 +1,5 @@
 
-## AI notes about roasting small batches
+## AI ChatGPT notes about roasting small batches
 
 For small-batch roasting (150 g in your 500 g drum), the **Rate of Rise (RoR)** schedule is what keeps the roast tasting developed (sweet, rich) rather than baked or ashy.
 

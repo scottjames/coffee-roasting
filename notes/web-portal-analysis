@@ -1,0 +1,83 @@
+web portal service for ai analysis of coffee roast
+
+
+# Coffee Roaster Log Analysis API service and Web Portal
+
+## Provide a portal to upload coffee roaster log files which will:
+
+ - use the API below to convert log file to analysis package.
+ - database the results along wtih log file.
+ - display the roast session info, with summary and thumbprint image.
+ - mouse-over or click for detail view of that roast session.
+ - ability to group sessions together into single context (AI only looks at last 3-5?).
+ - ability to plot metrics on site.
+
+
+## Provide a REST API for a service that will:
+
+Parse the coffee roaster log file and provide analysis results.
+
+ - support multiple roaster log formats, dont assume one log file format.
+ - read Artisan Scope "alog" files, parse with 'ast' python dict archive files.
+ - Other roaster logs format??
+
+Parse commonly used key metrics in every roast:
+
+ - coffee variety, batch size
+ - ambient temperature, humidity.
+ - record metrics like gram before/after weight loss, bean density
+ - DTR ratio, TP, DE, FC, DROP.
+ - Cooling curve exponential ratio (k, Y0, Tau, half-life, ...)
+ - temperature scale C or F.
+ - return these in 'metrics' section of json data model.
+
+
+### Use artisan in cli (or make cli interface?) to:
+
+ - generate some chart img (png) - one generic, one with stats overlayed
+
+### Prompt claude.ai for analysis
+
+ - use a long chat context per portal account (per beans type and batch size?)
+ - allow grouping in portal for AI context.
+ - keep the AI response with this roast, along with 'summary' from AI.
+
+Use the following prompt:
+
+```
+Analyze this attached Artisan Roasting Scope .alog file. Provide analysis
+of the roast plan used, and provide guidance for improvements for these
+same green coffee beans and same batch size using the same 500 gram
+electric drum roaster. The temperatures listed are in C not F.
+```
+
+or with metrics:
+
+
+```
+
+Analyze this attached Artisan Roasting Scope .alog file. Provide analysis
+of the roast plan used, and provide guidance for improvements for these
+same green coffee beans and same batch size. Organize the analysis
+into sections titled:
+ "Profile Analysis",
+ "Issues Identified",
+ "Specific Problems vs. Roasting Notes",
+ "Recommendations for Next Roast",
+ "Expected Improvements",
+ "Roast Summary".
+Under the section "Roast Summary" provide a short summary and top
+three bullet point items for this file.
+The coffee bean roaster is a 500 gram electric drum roaster.
+The temperatures listed are in C not F.
+Refer to "the roaster" in third person instead of "you" second person.
+
+```
+
+
+
+## 
+
+
+
+
