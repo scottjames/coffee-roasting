@@ -156,7 +156,7 @@ standard_bean_labels=true
 step100temp=-18
 swapETBT=false
 swaplcds=false
-timestamp=2025-09-28T13:37:04
+timestamp=2025-09-28T14:43:44
 titleshowalways=false
 transMappingMode=0
 watermarks=true
@@ -266,10 +266,10 @@ zmax=20
 zmin=0
 
 [Batch]
-batchcounter=16
+batchcounter=17
 batchprefix=R
 batchsequence=1
-lastroastepoch=1758998007
+lastroastepoch=1759086423
 neverUpdateBatchCounter=false
 
 [Color]
@@ -455,7 +455,7 @@ extrastopbits=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x2\0\0\0\x1)
 extratimeout=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6?\xe0\0\0\0\0\0\0)
 
 [ExtraDev]
-devicetablecolumnwidths=100, 100, 100, 100, 100, 100, 100, 55, 55, 56, 56, 84, 84, 67, 67
+devicetablecolumnwidths=100, 100, 100, 100, 100, 100, 100, 41, 43, 51, 53, 55, 57, 55, 55
 extraCurveVisibility1=true, true, true, true, true, true, true, true, true, true
 extraCurveVisibility2=false, true, true, true, true, true, true, true, true, true
 extraDelta1=false, false, false, false, false, false, false, false, false, false
@@ -483,17 +483,17 @@ buttonpalette_slider_alternative_layout=false, false, false, false, false, false
 buttonpalette_tooltips=false, false, false, false, false, false, false, false, false, false
 buttonpalettemaxlen=14, 14, 14, 14, 14, 14, 14, 14, 14, 14
 buttonsize=2
-eventbuttontablecolumnwidths=130, 80, 100, 50, 150, 781, 69, 75, 75
-extraeventbuttoncolor=#a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #009202, #8a1200, #000000, #986a44, #33c7bd, #000a0d, #33c7bd, #7e1000, #0051b7, #801000, #813d9c, #808080
-extraeventbuttontextcolor=white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white
-extraeventsactions=1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1
-extraeventsactionstrings="OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", , "DRUM;100", "DRUM;0", , swt, smk, , "COOL;100", "COOL;0", "FILTER;1", "FILTER;0", ESTOP, OFF
+eventbuttontablecolumnwidths=130, 80, 100, 50, 150, 386, 69, 75, 75
+extraeventbuttoncolor=#a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #a51d2d, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #1a5fb4, #009202, #8a1200, #000000, #986a44, #000a0d, #33c7bd, #7e1000, #813d9c, #808080
+extraeventbuttontextcolor=white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white, white
+extraeventsactions=1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1
+extraeventsactionstrings="OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT1;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", "OT2;{}", , "DRUM;100", "DRUM;0", , swt, , "COOL;100", "COOL;0", ESTOP, OFF
 extraeventsbuttonsflags=0, 1, 1
-extraeventsdescriptions=, , , , , , , , , , , , , , , , , , , , , , , , , , sweet, smoke, , , , , , , 
-extraeventslabels=Heat 100, Heat 90, Heat 80, Heat 70, Heat 60, Heat 50, Heat 40, Heat 30, Heat 20, Heat 10, Heat 00, Air 100, Air 90, Air 80, Air 70, Air 60, Air 50, Air 40, Air 30, Air 20, Air 10, Air 00, , " DRUM ON ", " DRUM OFF ", , " SWEET", " SMOKE", , " COOL ON ", " COOL OFF ", " FILTER ON ", " FILTER OFF ", " E STOP ", " OFF"
-extraeventstypes=3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 1, 4, 9, 9, 4, 4, 4, 4, 4, 4, 4
-extraeventsvalues=11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-extraeventsvisibility=1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1
+extraeventsdescriptions=, , , , , , , , , , , , , , , , , , , , , , , , , , sweet, , , , , 
+extraeventslabels=Heat 100, Heat 90, Heat 80, Heat 70, Heat 60, Heat 50, Heat 40, Heat 30, Heat 20, Heat 10, Heat 00, Air 100, Air 90, Air 80, Air 70, Air 60, Air 50, Air 40, Air 30, Air 20, Air 10, Air 00, , " DRUM ON ", " DRUM OFF ", , " SWEET", , " COOL ON ", " COOL OFF ", " E STOP ", " OFF"
+extraeventstypes=3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 1, 4, 9, 4, 4, 4, 4, 4
+extraeventsvalues=11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+extraeventsvisibility=1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1
 marklastbuttonpressed=true
 showextrabuttontooltips=false
 
@@ -877,7 +877,7 @@ two_bucket_mode=false
 [SerialPort]
 baudrate=115200
 bytesize=8
-comport=/dev/ttyUSB0
+comport=/dev/cu.usbserial-1410
 parity=N
 stopbits=1
 timeout=1.4
