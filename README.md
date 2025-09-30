@@ -10,6 +10,10 @@ The Artisan Scope configuration file is based on the Artisan TC4 driver for skyw
 
 This repo keeps my config file and logs of coffee roasted.
 
+Notes
+ - [notes](notes/)
+
+
 ---
 ## Roast Log
 
