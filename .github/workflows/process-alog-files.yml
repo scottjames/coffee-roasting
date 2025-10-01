@@ -1,0 +1,38 @@
+name: Process New .alog Files
+
+on:
+  push:
+    paths:
+      - '**/*.alog'
+
+jobs:
+  process-alog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # pip install -r requirements.txt  # Uncomment if you have dependencies
+
+      - name: List new .alog files
+        id: find_alog
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.alog$' > alog_files.txt || true
+          cat alog_files.txt
+
+      - name: Run process_alog.py on new files
+        if: success()
+        run: |
+          while read file; do
+            if [ -f "$file" ]; then
+              python process_alog.py "$file"
+            fi
+          done < alog_files.txt
