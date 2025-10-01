@@ -56,77 +56,122 @@ class AlogParser:
         # Get computed data if available
         computed = self.data.get('computed', {})
         
-        # Event metrics from computed data
+        # Get timeindex and timex arrays
+        timeindex = self.data.get('timeindex', [])
+        timex = self.data.get('timex', [])
+        
+        # Event metrics
         events = {}
         
-        # CHARGE event
-        if 'CHARGE_BT' in computed:
+        # CHARGE event (always at time 0)
+        if computed and 'CHARGE_BT' in computed:
             events['CHARGE'] = {
                 'time': '0:00',
                 'ET': computed.get('CHARGE_ET', 'N/A'),
                 'BT': computed.get('CHARGE_BT', 'N/A')
             }
+        elif len(self.data.get('temp2', [])) > 0 and len(self.data.get('temp1', [])) > 0:
+            events['CHARGE'] = {
+                'time': '0:00',
+                'ET': self.data['temp1'][0],
+                'BT': self.data['temp2'][0]
+            }
         
-        # TP (Turning Point) event
-        if 'TP_time' in computed:
-            tp_time = computed['TP_time']
+        # TP (Turning Point) event from computed or find minimum temp
+        if computed and 'TP_time' in computed:
             events['TP'] = {
-                'time': self._format_time(tp_time),
+                'time': self._format_time(computed['TP_time']),
                 'ET': computed.get('TP_ET', 'N/A'),
                 'BT': computed.get('TP_BT', 'N/A')
             }
+        elif computed and 'TP_idx' in computed:
+            tp_idx = int(computed['TP_idx'])
+            events['TP'] = {
+                'time': self._format_time(timex[tp_idx]) if tp_idx < len(timex) else 'N/A',
+                'ET': self._get_temp_at_index(tp_idx, 'temp1'),
+                'BT': self._get_temp_at_index(tp_idx, 'temp2')
+            }
         
-        # DE (Dry End) event
-        if 'DRY_time' in computed:
-            dry_time = computed['DRY_time']
+        # DE (Dry End) event - timeindex[0]
+        if computed and 'DRY_time' in computed:
             events['DE'] = {
-                'time': self._format_time(dry_time),
+                'time': self._format_time(computed['DRY_time']),
                 'ET': computed.get('DRY_ET', 'N/A'),
                 'BT': computed.get('DRY_BT', 'N/A')
             }
+        elif len(timeindex) > 0 and timeindex[0] > 0:
+            de_time = timeindex[0]
+            de_idx = self._find_time_index(de_time)
+            events['DE'] = {
+                'time': self._format_time(de_time),
+                'ET': self._get_temp_at_index(de_idx, 'temp1'),
+                'BT': self._get_temp_at_index(de_idx, 'temp2')
+            }
         
-        # FCs (First Crack Start) event
-        if 'FCs_time' in computed:
-            fcs_time = computed['FCs_time']
+        # FCs (First Crack Start) event - timeindex[1]
+        if computed and 'FCs_time' in computed:
             events['FCs'] = {
-                'time': self._format_time(fcs_time),
+                'time': self._format_time(computed['FCs_time']),
                 'ET': computed.get('FCs_ET', 'N/A'),
                 'BT': computed.get('FCs_BT', 'N/A'),
                 'ROR': computed.get('fcs_ror', 'N/A')
             }
-        
-        # FCe (First Crack End) - from timeindex[5] if available
-        timeindex = self.data.get('timeindex', [])
-        if len(timeindex) > 5 and timeindex[5] > 0:
-            fce_idx = int(timeindex[5])
-            events['FCe'] = {
-                'time': self._format_time(timeindex[5]),
-                'ET': self._get_temp_at_index(fce_idx, 'temp1'),
-                'BT': self._get_temp_at_index(fce_idx, 'temp2')
+        elif len(timeindex) > 1 and timeindex[1] > 0:
+            fcs_time = timeindex[1]
+            fcs_idx = self._find_time_index(fcs_time)
+            events['FCs'] = {
+                'time': self._format_time(fcs_time),
+                'ET': self._get_temp_at_index(fcs_idx, 'temp1'),
+                'BT': self._get_temp_at_index(fcs_idx, 'temp2')
             }
         
-        # SCs (Second Crack Start) - from timeindex[2] if available
+        # SCs (Second Crack Start) - timeindex[2]
         if len(timeindex) > 2 and timeindex[2] > 0:
-            scs_idx = int(timeindex[2])
+            scs_time = timeindex[2]
+            scs_idx = self._find_time_index(scs_time)
             events['SCs'] = {
-                'time': self._format_time(timeindex[2]),
+                'time': self._format_time(scs_time),
                 'ET': self._get_temp_at_index(scs_idx, 'temp1'),
                 'BT': self._get_temp_at_index(scs_idx, 'temp2')
             }
         
-        # DROP event
-        if 'DROP_time' in computed:
-            drop_time = computed['DROP_time']
+        # FCe (First Crack End) - timeindex[5]
+        if len(timeindex) > 5 and timeindex[5] > 0:
+            fce_time = timeindex[5]
+            fce_idx = self._find_time_index(fce_time)
+            events['FCe'] = {
+                'time': self._format_time(fce_time),
+                'ET': self._get_temp_at_index(fce_idx, 'temp1'),
+                'BT': self._get_temp_at_index(fce_idx, 'temp2')
+            }
+        
+        # DROP event - timeindex[6] or computed
+        if computed and 'DROP_time' in computed:
             events['DROP'] = {
-                'time': self._format_time(drop_time),
+                'time': self._format_time(computed['DROP_time']),
                 'ET': computed.get('DROP_ET', 'N/A'),
                 'BT': computed.get('DROP_BT', 'N/A')
+            }
+        elif len(timeindex) > 6 and timeindex[6] > 0:
+            drop_time = timeindex[6]
+            drop_idx = self._find_time_index(drop_time)
+            events['DROP'] = {
+                'time': self._format_time(drop_time),
+                'ET': self._get_temp_at_index(drop_idx, 'temp1'),
+                'BT': self._get_temp_at_index(drop_idx, 'temp2')
+            }
+        elif len(timex) > 0:  # Use last recorded time as DROP
+            drop_time = timex[-1]
+            events['DROP'] = {
+                'time': self._format_time(drop_time),
+                'ET': self.data.get('temp1', [])[-1] if self.data.get('temp1') else 'N/A',
+                'BT': self.data.get('temp2', [])[-1] if self.data.get('temp2') else 'N/A'
             }
         
         metrics['events'] = events
         
         # Phase metrics
-        if computed:
+        if computed and computed.get('totaltime'):
             metrics['total_time'] = self._format_time(computed.get('totaltime', 0))
             metrics['dry_phase_time'] = self._format_time(computed.get('dryphasetime', 0))
             metrics['mid_phase_time'] = self._format_time(computed.get('midphasetime', 0))
@@ -136,6 +181,15 @@ class AlogParser:
             metrics['finish_phase_ror'] = computed.get('finish_phase_ror', 'N/A')
             metrics['total_ror'] = computed.get('total_ror', 'N/A')
             metrics['weight_loss'] = f"{computed.get('weight_loss', 'N/A')}%"
+        elif len(timex) > 0:
+            # Calculate from raw data
+            metrics['total_time'] = self._format_time(timex[-1])
+            weight = self.data.get('weight', [0, 0, 'g'])
+            if len(weight) >= 2 and weight[0] > 0:
+                loss = ((weight[0] - weight[1]) / weight[0]) * 100
+                metrics['weight_loss'] = f"{loss:.1f}%"
+            else:
+                metrics['weight_loss'] = 'N/A'
         
         return metrics
     
@@ -147,8 +201,28 @@ class AlogParser:
         secs = int(seconds % 60)
         return f"{minutes}:{secs:02d}"
     
+    def _find_time_index(self, target_time: float) -> int:
+        """Find the closest index in timex array for a given time in seconds"""
+        timex = self.data.get('timex', [])
+        if not timex:
+            return -1
+        
+        # Find closest time index
+        closest_idx = 0
+        min_diff = abs(timex[0] - target_time)
+        
+        for idx, time in enumerate(timex):
+            diff = abs(time - target_time)
+            if diff < min_diff:
+                min_diff = diff
+                closest_idx = idx
+        
+        return closest_idx
+    
     def _get_temp_at_index(self, index: int, temp_key: str) -> Any:
         """Get temperature at a specific index"""
+        if index < 0:
+            return 'N/A'
         temps = self.data.get(temp_key, [])
         if 0 <= index < len(temps):
             temp = temps[index]
