@@ -25,12 +25,14 @@ Heat | Air  | ROR
 
 ## Target:
 
+** batch size 150 grams **
+
 - DRY for 3:30 - 4:00
 - BRN for 2:00 - 2:30 (longer looses flavor)
-- DEV for 2:30 - 3:00 (longer looses flavor)
+- DEV for 2:30 - 3:00 (longer looses flavor, shorter makes bitterness)
 - DROP around 10:00 - 10:30 (longer looses flavor)
-- Enter DE with ROR of 10 - 12
-- Enter FC with ROR of 4 - 6 (but < 6, not more)
+- Enter DE with ROR of 8 - 10
+- Enter FC with ROR of 3 - 5 (but <= 5, not more! else bitterness)
 
 ## For Dark Roast:
 
