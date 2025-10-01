@@ -28,11 +28,11 @@ jobs:
           git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.alog$' > alog_files.txt || true
           cat alog_files.txt
 
-      - name: Run process_alog.py on new files
+      - name: process new alog files
         if: success()
         run: |
           while read file; do
             if [ -f "$file" ]; then
-              python process_alog.py "$file"
+              python artisanc/artisanc_cli.py "$file"
             fi
           done < alog_files.txt
