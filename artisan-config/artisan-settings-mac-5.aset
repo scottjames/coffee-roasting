@@ -266,10 +266,10 @@ zmax=20
 zmin=0
 
 [Batch]
-batchcounter=18
+batchcounter=19
 batchprefix=R
-batchsequence=2
-lastroastepoch=1759090669
+batchsequence=1
+lastroastepoch=1759593316
 neverUpdateBatchCounter=false
 
 [Color]
