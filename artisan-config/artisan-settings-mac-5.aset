@@ -32,7 +32,7 @@ ETlcd=true
 ETprojectFlag=false
 ExtraEventSamplingDelay=0
 Flavors=Acidity, Aftertaste, Clean Cup, Head, Fragrance, Sweetness, Aroma, Balance, Body
-Geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\v\0\0\0'\0\0\x5\x98\0\0\x3z\0\0\0\v\0\0\0\x43\0\0\x5\x98\0\0\x3z\0\0\0\0\0\0\0\0\x5\xa0\0\0\0\v\0\0\0\x43\0\0\x5\x98\0\0\x3z)
+Geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\x19\0\0\x5\x9f\0\0\x3\x83\0\0\0\0\0\0\0\x35\0\0\x5\x9f\0\0\x3\x83\0\0\0\0\x2\0\0\0\x5\xa0\0\0\0\0\0\0\0\x35\0\0\x5\x9f\0\0\x3\x83)
 KeepON=true
 LCDColors=@Variant(\0\0\0\b\0\0\0\b\0\0\0\n\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\xe\0#\0\x46\0\x38\0\x46\0\x38\0\x46\0\x38\0\0\0\x4\0s\0v\0\0\0\n\0\0\0\xe\0#\0\x46\0\x38\0\x46\0\x38\0\x46\0\x38\0\0\0 \0s\0l\0o\0w\0\x63\0o\0o\0l\0i\0n\0g\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\xe\0#\0\x46\0\x38\0\x46\0\x38\0\x46\0\x38\0\0\0\xe\0r\0s\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\xe\0#\0\x46\0\x38\0\x46\0\x38\0\x46\0\x38\0\0\0\x4\0\x65\0t\0\0\0\n\0\0\0\xe\0#\0\x63\0\x63\0\x30\0\x66\0\x35\0\x30\0\0\0\xe\0\x64\0\x65\0l\0t\0\x61\0\x65\0t\0\0\0\n\0\0\0\xe\0#\0\x45\0\x42\0\x45\0\x42\0\x45\0\x42\0\0\0\xe\0\x64\0\x65\0l\0t\0\x61\0\x62\0t\0\0\0\n\0\0\0\xe\0#\0\x45\0\x42\0\x45\0\x42\0\x45\0\x42\0\0\0\x4\0\x62\0t\0\0\0\n\0\0\0\xe\0#\0\x30\0\x41\0\x35\0\x43\0\x39\0\x30)
 LEDColors=@Variant(\0\0\0\b\0\0\0\b\0\0\0\n\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\x12\0#\0\x32\0\x36\0\x32\0\x36\0\x32\0\x36\0\x66\0\x66\0\0\0\x4\0s\0v\0\0\0\n\0\0\0\xe\0#\0\x34\0\x43\0\x34\0\x43\0\x34\0\x43\0\0\0 \0s\0l\0o\0w\0\x63\0o\0o\0l\0i\0n\0g\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\xe\0#\0\x43\0\x43\0\x30\0\x44\0\x35\0\x30\0\0\0\xe\0r\0s\0t\0i\0m\0\x65\0r\0\0\0\n\0\0\0\xe\0#\0\x31\0\x38\0\x37\0\x41\0\x42\0\x33\0\0\0\x4\0\x65\0t\0\0\0\n\0\0\0\n\0w\0h\0i\0t\0\x65\0\0\0\xe\0\x64\0\x65\0l\0t\0\x61\0\x65\0t\0\0\0\n\0\0\0\xe\0#\0\x63\0\x63\0\x30\0\x66\0\x35\0\x30\0\0\0\xe\0\x64\0\x65\0l\0t\0\x61\0\x62\0t\0\0\0\n\0\0\0\xe\0#\0\x30\0\x41\0\x35\0\x43\0\x39\0\x30\0\0\0\x4\0\x62\0t\0\0\0\n\0\0\0\n\0w\0h\0i\0t\0\x65)
@@ -42,9 +42,9 @@ LargeLCDs=false
 LargePIDLCDs=false
 LargePhasesLCDs=false
 LargeScaleLCDs=false
-MainWindowState=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\x1\0\0\0\0\0\0\0\xa5\0\0\x3\x38\xfc\x2\0\0\0\x1\xfb\0\0\0\x14\0s\0l\0i\0\x64\0\x65\0r\0\x44\0o\0\x63\0k\0\0\0\0\0\0\0\x3\x38\0\0\0\x13\0\xff\xff\xff\0\0\x5\x8e\0\0\x3\x38\0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\0)
+MainWindowState=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\x1\0\0\0\0\0\0\0n\0\0\x3O\xfc\x2\0\0\0\x1\xfb\0\0\0\x14\0s\0l\0i\0\x64\0\x65\0r\0\x44\0o\0\x63\0k\0\0\0\0\0\0\0\x3O\0\0\0\x13\0\xff\xff\xff\0\0\x5\xa0\0\0\x3O\0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\0)
 Mode=C
-Phases=130, 152, 175, 200
+Phases=130, 144, 173, 200
 Schedule=false
 ScheduleDayFilter=true
 ScheduleMachineFilter=true
@@ -120,7 +120,7 @@ minmaxLimits=false
 operator_setup=
 optimalSmoothing=false
 organization_setup=
-phasesLCDmode=0
+phasesLCDmode=1
 phasesLCDmode_all=false, false, true
 phasesLCDmode_l=0, 2, 1
 phasesLCDs=true
@@ -133,7 +133,7 @@ profilepath=/Users/saj/prj/coffee-roasting/artisan-config/
 projectDeltaFlag=false
 projectionmode=0
 readingslcdsflags=0, 1, 1
-recentRoasts="@Variant(\0\0\0\t\0\0\0\x1\0\0\0\b\0\0\0\x17\0\0\0\x14\0w\0\x65\0i\0g\0h\0t\0U\0n\0i\0t\0\0\0\n\0\0\0\x2\0g\0\0\0\x10\0w\0\x65\0i\0g\0h\0t\0I\0n\0\0\0\x6@b\xc0\0\0\0\0\0\0\0\0\x14\0v\0o\0l\0u\0m\0\x65\0U\0n\0i\0t\0\0\0\n\0\0\0\x4\0m\0l\0\0\0\x10\0v\0o\0l\0u\0m\0\x65\0I\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\n\0t\0i\0t\0l\0\x65\0\0\0\n\0\0\0:\0R\0o\0\x61\0s\0t\0\x65\0r\0 \0S\0\x63\0o\0p\0\x65\0 \0G\0u\0\x61\0t\0\x65\0m\0\x61\0l\0\x61\0 \0\x32\0\x34\0.\0\x30\0\x34\0\0\0\x12\0r\0o\0\x61\0s\0t\0U\0U\0I\0\x44\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x14\0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0\"\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x16\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0,\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0_\0l\0\x61\0\x62\0\x65\0l\0s\0\0\0\0\xff\xff\xff\xff\0\0\0\x1e\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x18\0p\0l\0u\0s\0_\0\x61\0\x63\0\x63\0o\0u\0n\0t\0\0\0\0\xff\xff\xff\xff\0\0\0\x1a\0m\0o\0i\0s\0t\0u\0r\0\x65\0G\0r\0\x65\0\x65\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x1a\0\x64\0\x65\0n\0s\0i\0t\0y\0W\0\x65\0i\0g\0h\0t\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x16\0\x63\0o\0l\0o\0r\0S\0y\0s\0t\0\x65\0m\0\0\0\n\0\0\0\0\0\0\0\n\0\x62\0\x65\0\x61\0n\0s\0\0\0\n\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0i\0n\0\0\0\x2\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0\x61\0x\0\0\0\x2\0\0\0\0\0\0\0\x16\0\x62\0\x61\0t\0\x63\0h\0p\0r\0\x65\0\x66\0i\0x\0\0\0\n\0\0\0\x2\0R\0\0\0\xe\0\x62\0\x61\0t\0\x63\0h\0n\0r\0\0\0\x2\0\0\0\0\0\0\0\x14\0\x62\0\x61\0\x63\0k\0g\0r\0o\0u\0n\0\x64\0\0\0\0\xff\xff\xff\xff)"
+recentRoasts="@Variant(\0\0\0\b\0\0\0\x17\0\0\0\x14\0w\0\x65\0i\0g\0h\0t\0U\0n\0i\0t\0\0\0\n\0\0\0\x2\0g\0\0\0\x10\0w\0\x65\0i\0g\0h\0t\0I\0n\0\0\0\x6@b\xc0\0\0\0\0\0\0\0\0\x14\0v\0o\0l\0u\0m\0\x65\0U\0n\0i\0t\0\0\0\n\0\0\0\x4\0m\0l\0\0\0\x10\0v\0o\0l\0u\0m\0\x65\0I\0n\0\0\0\x6@j&\xb8Q\xeb\x85\x1f\0\0\0\n\0t\0i\0t\0l\0\x65\0\0\0\n\0\0\0@\0\x43\0o\0l\0u\0m\0\x62\0i\0\x61\0 \0\x45\0l\0 \0M\0i\0r\0\x61\0\x64\0o\0r\0 \0P\0i\0n\0k\0 \0\x42\0o\0u\0r\0\x62\0o\0n\0\0\0\x12\0r\0o\0\x61\0s\0t\0U\0U\0I\0\x44\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x14\0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0\"\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x16\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0,\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0_\0l\0\x61\0\x62\0\x65\0l\0s\0\0\0\0\xff\xff\xff\xff\0\0\0\x1e\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x18\0p\0l\0u\0s\0_\0\x61\0\x63\0\x63\0o\0u\0n\0t\0\0\0\0\xff\xff\xff\xff\0\0\0\x1a\0m\0o\0i\0s\0t\0u\0r\0\x65\0G\0r\0\x65\0\x65\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x1a\0\x64\0\x65\0n\0s\0i\0t\0y\0W\0\x65\0i\0g\0h\0t\0\0\0\x6@\x86h\0\0\0\0\0\0\0\0\x16\0\x63\0o\0l\0o\0r\0S\0y\0s\0t\0\x65\0m\0\0\0\n\0\0\0\0\0\0\0\n\0\x62\0\x65\0\x61\0n\0s\0\0\0\n\0\0\0r\0\x43\0o\0l\0u\0m\0\x62\0i\0\x61\0 \0\x45\0l\0 \0M\0i\0r\0\x61\0\x64\0o\0r\0 \0P\0i\0n\0k\0 \0\x42\0o\0u\0r\0\x62\0o\0n\0 \0G\0\x43\0X\0-\0\x38\0\x32\0\x37\0\x32\0\n\0\x43\0i\0t\0y\0 \0t\0o\0 \0\x43\0i\0t\0y\0+\0\n\0\n\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0i\0n\0\0\0\x2\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0\x61\0x\0\0\0\x2\0\0\0\0\0\0\0\x16\0\x62\0\x61\0t\0\x63\0h\0p\0r\0\x65\0\x66\0i\0x\0\0\0\n\0\0\0\x2\0R\0\0\0\xe\0\x62\0\x61\0t\0\x63\0h\0n\0r\0\0\0\x2\0\0\0\0\0\0\0\x14\0\x62\0\x61\0\x63\0k\0g\0r\0o\0u\0n\0\x64\0\0\0\0\xff\xff\xff\xff)", "@Variant(\0\0\0\b\0\0\0\x17\0\0\0\x14\0w\0\x65\0i\0g\0h\0t\0U\0n\0i\0t\0\0\0\n\0\0\0\x2\0g\0\0\0\x10\0w\0\x65\0i\0g\0h\0t\0I\0n\0\0\0\x6@b\xc0\0\0\0\0\0\0\0\0\x14\0v\0o\0l\0u\0m\0\x65\0U\0n\0i\0t\0\0\0\n\0\0\0\x4\0m\0l\0\0\0\x10\0v\0o\0l\0u\0m\0\x65\0I\0n\0\0\0\x6@j&\xb8Q\xeb\x85\x1f\0\0\0\n\0t\0i\0t\0l\0\x65\0\0\0\n\0\0\0\x44\0L\0\x61\0o\0s\0 \0P\0\x61\0k\0s\0o\0n\0g\0 \0H\0i\0l\0l\0s\0 \0\x43\0\x61\0t\0i\0g\0u\0\x61\0 \0v\0\x61\0r\0i\0\x65\0t\0y\0\0\0\x12\0r\0o\0\x61\0s\0t\0U\0U\0I\0\x44\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x14\0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0\"\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x16\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0,\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0_\0l\0\x61\0\x62\0\x65\0l\0s\0\0\0\0\xff\xff\xff\xff\0\0\0\x1e\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x18\0p\0l\0u\0s\0_\0\x61\0\x63\0\x63\0o\0u\0n\0t\0\0\0\0\xff\xff\xff\xff\0\0\0\x1a\0m\0o\0i\0s\0t\0u\0r\0\x65\0G\0r\0\x65\0\x65\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x1a\0\x64\0\x65\0n\0s\0i\0t\0y\0W\0\x65\0i\0g\0h\0t\0\0\0\x6@\x86h\0\0\0\0\0\0\0\0\x16\0\x63\0o\0l\0o\0r\0S\0y\0s\0t\0\x65\0m\0\0\0\n\0\0\0\0\0\0\0\n\0\x62\0\x65\0\x61\0n\0s\0\0\0\n\0\0\0|\0L\0\x61\0o\0s\0 \0P\0\x61\0k\0s\0o\0n\0g\0 \0H\0i\0l\0l\0s\0 \0\x43\0\x61\0t\0i\0g\0u\0\x61\0 \0v\0\x61\0r\0i\0\x65\0t\0y\0 \0G\0\x43\0X\0-\0\x38\0\x33\0\x30\0\x39\0\n\0\x43\0i\0t\0y\0 \0t\0o\0 \0\x46\0u\0l\0l\0 \0\x43\0i\0t\0y\0\n\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0i\0n\0\0\0\x2\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0\x61\0x\0\0\0\x2\0\0\0\0\0\0\0\x16\0\x62\0\x61\0t\0\x63\0h\0p\0r\0\x65\0\x66\0i\0x\0\0\0\n\0\0\0\x2\0R\0\0\0\xe\0\x62\0\x61\0t\0\x63\0h\0n\0r\0\0\0\x2\0\0\0\0\0\0\0\x14\0\x62\0\x61\0\x63\0k\0g\0r\0o\0u\0n\0\x64\0\0\0\0\xff\xff\xff\xff)", "@Variant(\0\0\0\b\0\0\0\x17\0\0\0\x14\0w\0\x65\0i\0g\0h\0t\0U\0n\0i\0t\0\0\0\n\0\0\0\x2\0g\0\0\0\x10\0w\0\x65\0i\0g\0h\0t\0I\0n\0\0\0\x6@b\xc0\0\0\0\0\0\0\0\0\x14\0v\0o\0l\0u\0m\0\x65\0U\0n\0i\0t\0\0\0\n\0\0\0\x4\0m\0l\0\0\0\x10\0v\0o\0l\0u\0m\0\x65\0I\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\n\0t\0i\0t\0l\0\x65\0\0\0\n\0\0\0:\0R\0o\0\x61\0s\0t\0\x65\0r\0 \0S\0\x63\0o\0p\0\x65\0 \0G\0u\0\x61\0t\0\x65\0m\0\x61\0l\0\x61\0 \0\x32\0\x34\0.\0\x30\0\x34\0\0\0\x12\0r\0o\0\x61\0s\0t\0U\0U\0I\0\x44\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x14\0p\0l\0u\0s\0_\0s\0t\0o\0r\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0\"\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x16\0p\0l\0u\0s\0_\0\x63\0o\0\x66\0\x66\0\x65\0\x65\0\0\0\0\xff\xff\xff\xff\0\0\0,\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0_\0l\0\x61\0\x62\0\x65\0l\0s\0\0\0\0\xff\xff\xff\xff\0\0\0\x1e\0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0s\0p\0\x65\0\x63\0\0\0\0\xff\xff\xff\xff\0\0\0 \0p\0l\0u\0s\0_\0\x62\0l\0\x65\0n\0\x64\0_\0l\0\x61\0\x62\0\x65\0l\0\0\0\0\xff\xff\xff\xff\0\0\0\x18\0p\0l\0u\0s\0_\0\x61\0\x63\0\x63\0o\0u\0n\0t\0\0\0\0\xff\xff\xff\xff\0\0\0\x1a\0m\0o\0i\0s\0t\0u\0r\0\x65\0G\0r\0\x65\0\x65\0n\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x1a\0\x64\0\x65\0n\0s\0i\0t\0y\0W\0\x65\0i\0g\0h\0t\0\0\0\x6\0\0\0\0\0\0\0\0\0\0\0\x16\0\x63\0o\0l\0o\0r\0S\0y\0s\0t\0\x65\0m\0\0\0\n\0\0\0\0\0\0\0\n\0\x62\0\x65\0\x61\0n\0s\0\0\0\n\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0i\0n\0\0\0\x2\0\0\0\0\0\0\0\x18\0\x62\0\x65\0\x61\0n\0S\0i\0z\0\x65\0_\0m\0\x61\0x\0\0\0\x2\0\0\0\0\0\0\0\x16\0\x62\0\x61\0t\0\x63\0h\0p\0r\0\x65\0\x66\0i\0x\0\0\0\n\0\0\0\x2\0R\0\0\0\xe\0\x62\0\x61\0t\0\x63\0h\0n\0r\0\0\0\x2\0\0\0\0\0\0\0\x14\0\x62\0\x61\0\x63\0k\0g\0r\0o\0u\0n\0\x64\0\0\0\0\xff\xff\xff\xff)"
 replayDropType=0
 replayType=0
 resetqsettings=0
@@ -156,8 +156,8 @@ standard_bean_labels=true
 step100temp=-18
 swapETBT=false
 swaplcds=false
-timestamp=2025-09-28T14:43:44
-titleshowalways=false
+timestamp=2025-10-04T23:05:41
+titleshowalways=true
 transMappingMode=0
 watermarks=true
 wheelpath=
@@ -176,7 +176,7 @@ alarmsets=@Variant(\0\0\0\t\0\0\0\f\0\0\0\n\0\0\0\0\0\0\0\t\0\0\0\0\0\0\0\t\0\0\
 alarmsfile=
 alarmsource=@Invalid()
 alarmstrings=@Invalid()
-alarmtablecolumnwidths=60, 55, 50, 50, 95, 65, 100, 70, 51, 103, 55, 139
+alarmtablecolumnwidths=@Invalid()
 alarmtemperature=@Invalid()
 alarmtime=@Invalid()
 loadAlarmsFromBackground=false
@@ -229,18 +229,18 @@ positiveTargetMin=0
 positiveTargetRangeLimit=false
 svActions=-1, -1, -1, -1, -1, -1, -1, -1
 svBeeps=false, false, false, false, false, false, false, false
-svButtons=true
+svButtons=false
 svDescriptions=, , , , , , , 
 svLabel=
 svLookahead=6
 svMode=0
 svRamps=0, 0, 0, 0, 0, 0, 0, 0
-svSlider=true
+svSlider=false
 svSliderMax=220
 svSliderMin=120
 svSoaks=0, 0, 0, 0, 0, 0, 0, 0
 svSync=0
-svValue=150
+svValue=120
 svValues=0, 0, 0, 0, 0, 0, 0, 0
 
 [Axis]
@@ -258,18 +258,18 @@ locktimex_start=-30
 resetmaxtime=600
 temp_grid=true
 time_grid=false
-xmax=600
-xmin=-30
+xmax="@Variant(\0\0\0\x7f\0\0\0\xePyQt_PyObject\0\0\0\0u\x80\x4\x95j\0\0\0\0\0\0\0\x8c\x16numpy._core.multiarray\x94\x8c\x6scalar\x94\x93\x94\x8c\x5numpy\x94\x8c\x5\x64type\x94\x93\x94\x8c\x2\x66\x38\x94\x89\x88\x87\x94R\x94(K\x3\x8c\x1<\x94NNNJ\xff\xff\xff\xffJ\xff\xff\xff\xffK\0t\x94\x62\x43\b6\xb3\x8b\xd1\xa5=\x8b@\x94\x86\x94R\x94.)"
+xmin=-41.156250498000006
 ymax=225
 ymin=0
 zmax=20
 zmin=0
 
 [Batch]
-batchcounter=22
+batchcounter=25
 batchprefix=R
-batchsequence=2
-lastroastepoch=1759608000
+batchsequence=3
+lastroastepoch=1759704069
 neverUpdateBatchCounter=false
 
 [Color]
@@ -332,16 +332,16 @@ YTbacklinestyle=-
 YTbacklinewidth=1
 YTbackmarker=None
 YTbackmarkersize=6
-extradrawstyles1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\xe\0\x64\0\x65\0\x66\0\x61\0u\0l\0t)
-extradrawstyles2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\xe\0\x64\0\x65\0\x66\0\x61\0u\0l\0t)
-extralinestyles1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x2\0-)
-extralinestyles2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x2\0-)
-extralinewidths1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6?\xf0\0\0\0\0\0\0)
-extralinewidths2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6?\xf0\0\0\0\0\0\0)
-extramarkers1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\b\0N\0o\0n\0\x65)
-extramarkers2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\b\0N\0o\0n\0\x65)
-extramarkersizes1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6@\x18\0\0\0\0\0\0)
-extramarkersizes2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6@\x18\0\0\0\0\0\0)
+extradrawstyles1=@Invalid()
+extradrawstyles2=@Invalid()
+extralinestyles1=@Invalid()
+extralinestyles2=@Invalid()
+extralinewidths1=@Invalid()
+extralinewidths2=@Invalid()
+extramarkers1=@Invalid()
+extramarkers2=@Invalid()
+extramarkersizes1=@Invalid()
+extramarkersizes2=@Invalid()
 
 [DefaultButtons]
 buttonactions=0, 0, 0, 0, 0, 0, 1, 1
@@ -354,7 +354,7 @@ xextrabuttonactionstrings=,
 
 [Device]
 ArduinoFILT=70, 70, 70, 70
-Controlbuttonflag=true
+Controlbuttonflag=false
 PIDbuttonflag=false
 YOCTO_async=false, false
 YOCTO_dataRate=256
@@ -447,30 +447,30 @@ ratingunits_setup=0, 0, 0, 0
 sourcetypes_setup=0, 0, 0, 0
 
 [ExtraComm]
-extrabaudrate=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x2\0\0%\x80)
-extrabytesize=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x2\0\0\0\b)
-extracomport=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\b\0\x43\0O\0M\0\x31)
-extraparity=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x2\0N)
-extrastopbits=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x2\0\0\0\x1)
-extratimeout=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x6?\xe0\0\0\0\0\0\0)
+extrabaudrate=@Invalid()
+extrabytesize=@Invalid()
+extracomport=@Invalid()
+extraparity=@Invalid()
+extrastopbits=@Invalid()
+extratimeout=@Invalid()
 
 [ExtraDev]
 devicetablecolumnwidths=100, 100, 100, 100, 100, 100, 100, 41, 43, 51, 53, 55, 57, 55, 55
 extraCurveVisibility1=true, true, true, true, true, true, true, true, true, true
-extraCurveVisibility2=false, true, true, true, true, true, true, true, true, true
+extraCurveVisibility2=true, true, true, true, true, true, true, true, true, true
 extraDelta1=false, false, false, false, false, false, false, false, false, false
 extraDelta2=false, false, false, false, false, false, false, false, false, false
 extraFill1=0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 extraFill2=0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-extraLCDvisibility1=true, false, false, false, false, false, false, false, false, false
-extraLCDvisibility2=false, false, false, false, false, false, false, false, false, false
-extradevicecolor1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x12\0#\0\x38\0\x31\0\x33\0\x64\0\x39\0\x63\0\x66\0\x66)
-extradevicecolor2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\xe\0#\0\x30\0\x30\0\x30\0\x30\0\x30\0\x30)
-extradevices=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\x2\0\0\0\x19)
-extramathexpression1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x4\0R\0\x32)
-extramathexpression2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\0)
-extraname1=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\x6\0R\0O\0R)
-extraname2=@Variant(\0\0\0\t\0\0\0\x1\0\0\0\n\0\0\0\0)
+extraLCDvisibility1=false, false, false, false, false, false, false, false, false, true
+extraLCDvisibility2=false, false, false, false, false, false, false, false, false, true
+extradevicecolor1=@Invalid()
+extradevicecolor2=@Invalid()
+extradevices=@Invalid()
+extramathexpression1=@Invalid()
+extramathexpression2=@Invalid()
+extraname1=@Invalid()
+extraname2=@Invalid()
 
 [ExtraEventButtons]
 buttonlistmaxlen=11
@@ -501,7 +501,7 @@ showextrabuttontooltips=false
 showmet=false
 showtimeguide=true
 statsmaxchrperline=30
-statssummary=false
+statssummary=true
 summarystatsfontsize=2
 summarystatstypes=1, 2, 3, 4, 5, 0, 6, 7, 8, 9, 10, 0, 11, 12, 13, 14, 15, 16, 17
 
@@ -800,7 +800,7 @@ quantifieractive=0, 0, 0, 0
 quantifiercoarse=0, 0, 0, 0
 quantifiermax=100, 100, 100, 100
 quantifiermin=0, 0, 0, 0
-quantifiersource=1, 0, 0, 1
+quantifiersource=0, 0, 0, 0
 
 [RoC]
 DeltaBT=true
@@ -817,9 +817,9 @@ statisticsmode=2
 swapdeltalcds=false
 
 [RoRlimits]
-RoRlimit=25
+RoRlimit=30
 RoRlimitFlag=true
-RoRlimitm=-10
+RoRlimitm=-15
 
 [RoastProperties]
 beansize_max=0
