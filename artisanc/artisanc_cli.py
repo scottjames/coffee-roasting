@@ -172,16 +172,21 @@ class AlogParser:
         
         # Phase metrics
         if computed and computed.get('totaltime'):
+            dtr = {}
             metrics['total_time'] = self._format_time(computed.get('totaltime', 0))
             metrics['dry_phase_time'] = self._format_time(computed.get('dryphasetime', 0))
+            dtr['dry'] = 100 * computed.get('dryphasetime', 1) / computed.get('totaltime', 0) if computed.get('dryphasetime', 0) > 0 else 'N/A'            
             metrics['mid_phase_time'] = self._format_time(computed.get('midphasetime', 0))
+            dtr['brown'] = 100 * computed.get('midphasetime', 1) / computed.get('totaltime', 0) if computed.get('midphasetime', 0) > 0 else 'N/A'            
             metrics['finish_phase_time'] = self._format_time(computed.get('finishphasetime', 0))
+            dtr['devel'] = 100 * computed.get('finishphasetime', 1) / computed.get('totaltime', 0) if computed.get('finishphasetime', 0) > 0 else 'N/A'            
             metrics['dry_phase_ror'] = computed.get('dry_phase_ror', 'N/A')
             metrics['mid_phase_ror'] = computed.get('mid_phase_ror', 'N/A')
             metrics['finish_phase_ror'] = computed.get('finish_phase_ror', 'N/A')
             metrics['total_ror'] = computed.get('total_ror', 'N/A')
             metrics['weight_loss'] = f"{computed.get('weight_loss', 'N/A')}%"
-        elif len(timex) > 0:
+            metrics['dtr'] = f"{dtr.get('dry','xD'):.0f}/{dtr.get('brown','xB'):.0f}/{dtr.get('devel','xD'):.0f}" if all(isinstance(v, (int, float)) for v in dtr.values()) else 'N/A'
+          
             # Calculate from raw data
             metrics['total_time'] = self._format_time(timex[-1])
             weight = self.data.get('weight', [0, 0, 'g'])
@@ -283,6 +288,7 @@ class OutputFormatter:
         lines.append(f"Beans            : {metrics.get('beans', 'N/A')}")
         lines.append(f"Color            : {metrics.get('color', 'N/A')}")
         lines.append(f"Weight Loss      : {metrics.get('weight_loss', 'N/A')}")
+        lines.append(f"DTR              : {metrics.get('dtr', 'N/A')}")
         
         # Events section
         events = metrics.get('events', {})
@@ -334,7 +340,8 @@ class OutputFormatter:
         lines.append(f"**Beans**: {metrics.get('beans', 'N/A')}  ")
         lines.append(f"**Color**: {metrics.get('color', 'N/A')}  ")
         lines.append(f"**Weight Loss**: {metrics.get('weight_loss', 'N/A')}  ")
-        
+        lines.append(f"**DTR**: {metrics.get('dtr', 'N/A')}  ")
+
         # Events table
         events = metrics.get('events', {})
         if events:
