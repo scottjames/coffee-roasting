@@ -55,9 +55,9 @@ Alarms (X=disable):
  - CHARGE+ 2:30 B60  Ease into DRY, make duration 3:30-4:00
  - CHARGE+ 4:30 B55
 
- - CHARGE+ 5:30 B50  (option 1) lower ROR into devel, finish before 2:30 or <25%
-
- - FCS+    0:30 B60  (option 2) add heat, climb to DROP TEMP (~195?) hopefully have small devel%
+ - FCS+    1:00 B50  (option 1) lower ROR into devel, finish before 2:30 or <25%
+ - ..or..
+ - FCS+    1:00 B60  (option 2) add heat, climb to DROP TEMP (~195?) hopefully have small devel%
 
  - DRY+    2:00 B50  X?     Lower ROR before FCs
  - DRY+    2:00 A70  X?     Lower ROR before FCs
