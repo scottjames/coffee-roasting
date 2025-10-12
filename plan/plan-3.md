@@ -19,7 +19,7 @@ Plan:
 Soak:
  - preheat ET ~140, keep A60
  - Charge at (lower temp), BT=120
- - soak 10 secs.
+ - soak ~10 secs.
 
 Start Dry:
  - Set brief high with fast temp step down in 15 secs intervals
@@ -42,11 +42,11 @@ Maillard:
  - option 1: drop before 2:30 devel **AT WHATEVER TEMP**
  - option 2: drop at 195c  **AT WHATEVER DEVEL %**
 
-Alarms (X=disable):
+Plan-3 Alarms (X=disable):
  - START+  0:01 A60
  - START+  0:05 B30  X
 
- - CHARGE+ 0:05 B50  Soak
+ - CHARGE+ 0:08 B50  Soak
  - CHARGE+ 0:15 B80  Initial ROR
  - CHARGE+ 0:30 B75
  - CHARGE+ 0:45 B70
