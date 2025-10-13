@@ -7,8 +7,10 @@
 
 Notes:
  - B55-B60 gives ROR ~10
- - Min B50 - no less
+ - Min B50 - no less (rapid drop of BT)
  - 5/4/3 -> small batch, 4:30/3:30/2:30
+ - DE start ~147...~172 = 25c over 3:30, ror~7-8
+ - MAI start ~172...187 = 15c over 1:30-2:00, ror~7-8
 
 Plan:
  - look for DTR times of "4-3-2" or 4:30 - 3:30 - 2:20
