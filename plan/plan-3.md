@@ -21,12 +21,12 @@ Plan:
 Soak:
  - preheat ET ~140, keep A60
  - Charge at (lower temp), BT=120
- - soak ~10 secs.
+ - soak ~15 secs.
 
 Start Dry:
  - Set brief high with fast temp step down in 15 secs intervals
  - Alarms: 0:15/B80 ... 1:30/B65
- - Should get high ROR 'pop' around TP (around 1:00 - 1:30)
+ - Should get high ROR 'pop' after TP (around 1:00 - 1:30)
  - Alarm: 2:30/B60
 
 Finish Dry:
@@ -55,13 +55,14 @@ Plan-3 Alarms (X=disable):
  - CHARGE+ 1:15 B65
 
  - CHARGE+ 2:30 B60  Ease into DRY, make duration 3:30-4:00
- - CHARGE+ 4:30 B55
+ - CHARGE+ 3:00 B55
+
+ - DRY+    2:00 B50  X?     Lower ROR before FCs
+ - DRY+    2:15 A65  X?     Lower ROR before FCs
+
+ - FCS+    0:15 A70  Add air, less smoky into DEV, reduce 'flick'
 
  - FCS+    1:00 B50  (option 1) lower ROR into devel, finish before 2:30 or <25%
  - ..or..
- - FCS+    1:00 B60  (option 2) add heat, climb to DROP TEMP (~195?) hopefully have small devel%
-
- - DRY+    2:00 B50  X?     Lower ROR before FCs
- - DRY+    2:00 A70  X?     Lower ROR before FCs
-
+ - FCS+    1:00 B60  (option 2) add heat, climb to DROP TEMP (~195?) with small devel 17%-22%
 
