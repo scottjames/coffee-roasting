@@ -19,8 +19,9 @@ Plan:
 ## Roast
 
 Soak:
- - preheat ET ~140, keep A60
- - Charge at (lower temp), BT=120
+ - preheat ET ~140  (for 150 grams)
+ - Increase Airflow A20...A50...A70
+ - Charge at (lower temp), BT=120  (for 150 grams)
  - soak ~15 secs.
 
 Start Dry:
@@ -45,7 +46,7 @@ Maillard:
  - option 2: drop at 195c  **AT WHATEVER DEVEL %**
 
 Plan-3 Alarms (X=disable):
- - START+  0:01 A60
+ - START+  0:01 A20
  - START+  0:05 B30  X
 
  - CHARGE+ 0:08 B50  Soak
@@ -58,7 +59,7 @@ Plan-3 Alarms (X=disable):
  - CHARGE+ 3:00 B55
 
  - DRY+    2:00 B50  X?     Lower ROR before FCs
- - DRY+    2:15 A65  X?     Lower ROR before FCs
+ - DRY+    2:15 A40  X?     Lower ROR before FCs
 
  - FCS+    0:15 A70  Add air, less smoky into DEV, reduce 'flick'
 
