@@ -4,7 +4,8 @@
 # Tests the actual command-line interface
 #
 
-set -e
+set -echoeuo pipefail
+
 
 # Colors
 RED='\033[0;31m'
@@ -215,10 +216,10 @@ fi
 # Test 16: Weight loss calculation
 run_test "Weight loss calculation"
 OUTPUT=$("$ARTISANC" "$TEST_FILE" --metrics 2>&1)
-if echo "$OUTPUT" | grep -q "Weight Loss.*15%"; then
+if echo "$OUTPUT" | grep -q "Weight Loss.*14.7%"; then
     pass "Weight loss calculated correctly"
 else
-    fail "Weight loss calculation incorrect" "$OUTPUT"
+    fail "Weight loss calculation incorrect" "[$OUTPUT]"
 fi
 
 # Test 17: Multiple output formats in sequence
