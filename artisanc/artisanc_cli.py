@@ -389,7 +389,9 @@ class OutputFormatter:
         if format_type == 'json':
             return json.dumps({title.lower().replace(' ', '_'): notes}, indent=2)
         elif format_type == 'md':
-            return f"# {title}\n\n{notes}"
+            # expand newlines for markdown and prepend list bullets
+            formatted_notes = '\n'.join(f"- {line}" if line.strip() else '' for line in notes.splitlines())
+            return f"# {title}\n\n{formatted_notes}"
         else:  # text
             return f"{title}\n{'=' * len(title)}\n\n{notes}"
 
