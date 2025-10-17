@@ -49,6 +49,7 @@ class AlogParser:
         # Basic roast information
         metrics['roast_id'] = self.data.get('roastUUID', 'N/A')
         metrics['date'] = self.data.get('roastdate', 'N/A')
+        metrics['time'] = self.data.get('roasttime', 'N/A')
         metrics['batch_size'] = self.data.get('weight', [0, 0, 'N/A'])
         metrics['beans'] = self.data.get('beans', 'N/A')
         metrics['color'] = self.data.get('ground_color', 'N/A')
@@ -236,12 +237,20 @@ class AlogParser:
     
     def get_roast_notes(self) -> str:
         """Get roasting notes"""
-        return self.data.get('roastingnotes', '')
+        notes = self.data.get('roastingnotes', '')
+        # eval newline characters if stored as escaped
+        if isinstance(notes, str):
+            notes = notes.encode('utf-8').decode('unicode_escape')
+        return notes
     
     def get_cup_notes(self) -> str:
         """Get cupping notes"""
-        return self.data.get('cuppingnotes', '')
-    
+        notes = self.data.get('cuppingnotes', '')
+        # eval newline characters if stored as escaped
+        if isinstance(notes, str):
+            notes = notes.encode('utf-8').decode('unicode_escape')
+        return notes
+
     def update_roast_notes(self, notes: str, append: bool = True):
         """Update roasting notes"""
         if append and 'roastingnotes' in self.data:
@@ -280,6 +289,7 @@ class OutputFormatter:
         # Basic info
         lines.append(f"Roast ID         : {metrics.get('roast_id', 'N/A')}")
         lines.append(f"Date             : {metrics.get('date', 'N/A')}")
+        lines.append(f"Time             : {metrics.get('time', 'N/A')}")
         
         batch = metrics.get('batch_size', [])
         if isinstance(batch, list) and len(batch) >= 3:
