@@ -13,7 +13,7 @@ Notes:
  - MAI start ~172...187 = 15c over 1:30-2:00, ror~7-8
 
 Plan:
- - look for DTR times of "4-3-2" or 4:30 - 3:30 - 2:20
+ - look for DTR times of "4-3-2" or 4:00 - 3:00 - 2:00
  - 150 gram batch size (150 grams takes -25c on charge)
 
 ## Roast
@@ -31,19 +31,21 @@ Start Dry:
  - Alarm: 2:30/B60
 
 Finish Dry:
- - B60 into DE, then B55
- - Target DE 4:30 at 150c
- - lower temp -5% (to B55 ?), lower ROR of 7-8 (+21c in 2:30-3:00 mins)
+ - B55 into DE, then B50
+ - Target DE 4:00 at 150c
+ - lower temp -5% (to B50 ?), lower ROR of 7-8 (+21c in 2:30-3:00 mins)
  - Alarm: 4:30/B55
 
 Maillard:
  - stretch maillard/brown duration 3:00-3:30 before FC (around 172)
- - ride at B55 into FCs (MIN B55 -- NO B50)
+ - ride at B50-B55 into FCs (min B50 -- no less, dont stall FC)
  - target ROR ~ 5-6 ?
- - After FCs, ride B55 2:00 - 2:30 devel
+ - After FCs, ride B50 (no B45) 2:00 - 2:30 devel
+ - small AIR increase, dont jump A60 to A80
 
- - option 1: drop before 2:30 devel **AT WHATEVER TEMP**
- - option 2: drop at 195c  **AT WHATEVER DEVEL %**
+ - Need 185+ to Drop
+ - option 1: drop before 2:30 devel **AT WHATEVER TEMP** NO ...NEED MIN 186+
+ - option 2: drop at 186+  **AT WHATEVER DEVEL %**
 
 Plan-3 Alarms (X=disable):
  - START+  0:01 A20
