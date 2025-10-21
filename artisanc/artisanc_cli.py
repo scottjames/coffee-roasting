@@ -47,6 +47,7 @@ class AlogParser:
         metrics = {}
         
         # Basic roast information
+        metrics['title'] = self.data.get('title', 'N/A')
         metrics['roast_id'] = self.data.get('roastUUID', 'N/A')
         metrics['date'] = self.data.get('roastdate', 'N/A')
         metrics['time'] = self.data.get('roasttime', 'N/A')
@@ -57,6 +58,13 @@ class AlogParser:
         metrics['roastbatchnr'] = self.data.get('roastbatchnr', 'N/A')
         metrics['roastbatchprefix'] = self.data.get('roastbatchprefix', 'N/A')
         metrics['roastbatchpos'] = self.data.get('roastbatchpos', 'N/A')
+        metrics['roastbatch'] = (
+            f"{metrics.get('roastbatchprefix', '')}" +
+            f"{metrics.get('roastbatchnr', '')}" +
+            f"({metrics.get('roastbatchpos', '')})"
+            )
+
+
 
         # Get computed data if available
         computed = self.data.get('computed', {})
@@ -299,10 +307,7 @@ class OutputFormatter:
         if isinstance(batch, list) and len(batch) >= 3:
             lines.append(f"Batch Size       : {batch[0]}{batch[2]} → {batch[1]}{batch[2]}")
 
-        lines.append(f"Roast Batch      : {metrics.get('roastbatchnr', 'N/A')}")
-        lines.append(f"Roast Prefix     : {metrics.get('roastbatchprefix', 'N/A')}")
-        lines.append(f"Roast Posn       : {metrics.get('roastbatchpos', 'N/A')}")
-
+        lines.append(f"Roast Batch      : {metrics.get('roastbatch', '')}")
         lines.append(f"Beans            : {metrics.get('beans', 'N/A')}")
         lines.append(f"Color            : {metrics.get('color', 'N/A')}")
         lines.append(f"Weight Loss      : {metrics.get('weight_loss', 'N/A')}")
@@ -355,10 +360,11 @@ class OutputFormatter:
         if isinstance(batch, list) and len(batch) >= 3:
             lines.append(f"**Batch Size**: {batch[0]}{batch[2]} → {batch[1]}{batch[2]}  ")
         
-        lines.append(f"**Roast Batch**: {metrics.get('roastbatchnr', 'N/A')}")
-        lines.append(f"**Roast Prefix**: {metrics.get('roastbatchprefix', 'N/A')}")
-        lines.append(f"**Roast Posn**: {metrics.get('roastbatchpos', 'N/A')}")
-
+        # lines.append(f"**Roast Batch**: {metrics.get('roastbatchnr', 'N/A')}")
+        # lines.append(f"**Roast Prefix**: {metrics.get('roastbatchprefix', 'N/A')}")
+        # lines.append(f"**Roast Posn**: {metrics.get('roastbatchpos', 'N/A')}")
+        lines.append(f"**Roast**: {metrics.get('roastbatch', 'N/A')}")
+        lines.append(f"**Title**: {metrics.get('title', 'N/A')}")
         lines.append(f"**Beans**: {metrics.get('beans', 'N/A')}  ")
         lines.append(f"**Color**: {metrics.get('color', 'N/A')}  ")
         lines.append(f"**Weight Loss**: {metrics.get('weight_loss', 'N/A')}  ")
