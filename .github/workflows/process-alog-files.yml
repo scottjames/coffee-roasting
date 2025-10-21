@@ -89,7 +89,7 @@ jobs:
             # Log Analysis Reports
             This directory contains automatically generated analysis reports from log files.
             ## Reports
-            EOF
+EOF
           fi
           
           # Add links to newly processed files
