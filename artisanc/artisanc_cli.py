@@ -363,7 +363,7 @@ class OutputFormatter:
         # lines.append(f"**Roast Batch**: {metrics.get('roastbatchnr', 'N/A')}")
         # lines.append(f"**Roast Prefix**: {metrics.get('roastbatchprefix', 'N/A')}")
         # lines.append(f"**Roast Posn**: {metrics.get('roastbatchpos', 'N/A')}")
-        lines.append(f"**Roast**: {metrics.get('roastbatch', 'N/A')}")
+        lines.append(f"**Roast Batch**: {metrics.get('roastbatch', 'N/A')}")
         lines.append(f"**Title**: {metrics.get('title', 'N/A')}")
         lines.append(f"**Beans**: {metrics.get('beans', 'N/A')}  ")
         lines.append(f"**Color**: {metrics.get('color', 'N/A')}  ")
