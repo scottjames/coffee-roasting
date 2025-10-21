@@ -20,9 +20,9 @@ jobs:
         with:
           fetch-depth: 2  # fetch current and previous commit to detect changes
 
-      - name: Install ImageMagick
-        #run: sudo apt-get update && sudo apt-get install -y imagemagick
-        run: sudo apt-get install -y imagemagick
+#      - name: Install ImageMagick
+#        #run: sudo apt-get update && sudo apt-get install -y imagemagick
+#        run: sudo apt-get install -y imagemagick
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,6 +35,7 @@ jobs:
           source venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r artisanc/requirements.txt  # Uncomment if you have dependencies
+          pip install Pillow
 
       - name: Detect new log files
         id: detect
@@ -111,7 +112,10 @@ jobs:
                 SM="/coffee-roasting/logs/img/${filename}.small.png"
                 IFILE="../logs/img/${filename}.png"
                 SFILE="../logs/img/${filename}.small.png"
-                convert "$IFILE" -resize 50% "$SFILE"
+                #convert "$IFILE" -resize 50% "$SFILE"
+
+                # Resize to specific height (auto width)
+                python -m PIL "$IFILE" --size 0x300 --output "$SFILE"
                 
                 # Append link to README
                 #echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
