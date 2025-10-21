@@ -70,7 +70,7 @@ jobs:
               echo "Processing $log_file"
               
               # Extract filename without path and extension
-              filename=$(basename "$log_file" .log)
+              filename=$(basename "$log_file" .alog)
               
               # Run artisanc/artisan_cli.py and redirect output to markdown file
               python artisanc/artisanc_cli.py --metrics -o md "$log_file" > "md/${filename}.md"
@@ -95,7 +95,7 @@ jobs:
           # Add links to newly processed files
           while IFS= read -r log_file; do
             if [ -f "$log_file" ]; then
-              filename=$(basename "$log_file" .log)
+              filename=$(basename "$log_file" .alog)
               
               # Check if link already exists in README
               if ! grep -q "\[${filename}\]" md/README.md; then
@@ -103,7 +103,7 @@ jobs:
                 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
                 # Get alog image
-                IMG="logs/img/${filename}.png"
+                IMG="/coffee-roasting/logs/img/${filename}.png"
                 
                 # Append link to README
                 echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
