@@ -43,10 +43,10 @@ jobs:
           # Get list of new or modified files in logs/ directory
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             # If manually triggered, process all log files
-            NEW_FILES=$(find logs/ -type f -name "*.alog" 2>/dev/null || echo "")
+            NEW_FILES=$(find logs/ -type f -name "*.alog" 2>/dev/null | sort || echo "")
           else
             # Get files changed in the last commit
-            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' || echo "")
+            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
           fi
           # HACK for testing
           #NEW_FILES="logs/roast_25-10-11_1333.alog"
