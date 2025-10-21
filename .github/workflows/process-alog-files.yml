@@ -116,11 +116,11 @@ jobs:
                 #convert "$IFILE" -resize 50% "$SFILE"
 
                 # Resize to specific height (auto width)
-                python -m PIL "$IFILE" --size 0x300 --output "$SFILE"
+                #python -m PIL "$IFILE" --size 0x300 --output "$SFILE"
                 
                 # Append link to README
-                #echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
-                echo "- [${filename}](${filename}.md) [ :framed_picture: ]($SM) - added ${DATE}" >> md/README.md
+                echo "- [${filename}](${filename}.md) [image]($IMG) - added ${DATE}" >> md/README.md
+                #echo "- [${filename}](${filename}.md) [ :framed_picture: ]($SM) - added ${DATE}" >> md/README.md
                 #echo "- [${filename}](${filename}.md) [image]($IMG)" >> md/README.md
                 
                 echo "Added ${filename} to README.md"
