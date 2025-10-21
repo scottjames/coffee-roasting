@@ -119,7 +119,11 @@ jobs:
                 #python -m PIL "$IFILE" --size 0x300 --output "$SFILE"
                 
                 # Append link to README
-                echo "- [${filename}](${filename}.md) [image]($IMG) - added ${DATE}" >> md/README.md
+                ILINK=""
+                if [ -f "$IFILE" ]; then
+                  ILINK="[image](/coffee-roasting/$IFILE)"
+                fi
+                echo "- [${filename}](${filename}.md) $ILINK - added ${DATE}" >> md/README.md
                 #echo "- [${filename}](${filename}.md) [ :framed_picture: ]($SM) - added ${DATE}" >> md/README.md
                 #echo "- [${filename}](${filename}.md) [image]($IMG)" >> md/README.md
                 
