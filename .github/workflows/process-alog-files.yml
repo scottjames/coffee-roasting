@@ -111,8 +111,8 @@ jobs:
                 # Get alog image, make smaller image
                 IMG="/coffee-roasting/logs/img/${filename}.png"
                 SM="/coffee-roasting/logs/img/${filename}.small.png"
-                IFILE="../logs/img/${filename}.png"
-                SFILE="../logs/img/${filename}.small.png"
+                IFILE="logs/img/${filename}.png"
+                SFILE="logs/img/${filename}.small.png"
                 #convert "$IFILE" -resize 50% "$SFILE"
 
                 # Resize to specific height (auto width)
