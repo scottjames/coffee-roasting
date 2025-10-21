@@ -43,6 +43,8 @@ jobs:
             # Get files changed in the last commit
             NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' || echo "")
           fi
+          # HACK FIXME XXX
+          NEW_FILES="logs/roast_25-10-11_1333.alog"
           
           if [ -z "$NEW_FILES" ]; then
             echo "No new log files detected"
@@ -70,8 +72,8 @@ jobs:
               # Extract filename without path and extension
               filename=$(basename "$log_file" .log)
               
-              # Run client.py and redirect output to markdown file
-              python client.py "$log_file" > "md/${filename}.md"
+              # Run artisanc/artisan_cli.py and redirect output to markdown file
+              python artisanc/artisanc_cli.py --metrics -o md "$log_file" > "md/${filename}.md"
               
               echo "Created md/${filename}.md"
             fi
