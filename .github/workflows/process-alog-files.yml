@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'log/*.alog'
+      - 'logs/*.alog'
   workflow_dispatch:
 
 permissions:
@@ -35,13 +35,13 @@ jobs:
       - name: Detect new log files
         id: detect
         run: |
-          # Get list of new or modified files in log/ directory
+          # Get list of new or modified files in logs/ directory
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             # If manually triggered, process all log files
-            NEW_FILES=$(find log/ -type f -name "*.log" 2>/dev/null || echo "")
+            NEW_FILES=$(find logs/ -type f -name "*.log" 2>/dev/null || echo "")
           else
             # Get files changed in the last commit
-            NEW_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep '^log/.*\.log$' || echo "")
+            NEW_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep '^logs/.*\.log$' || echo "")
           fi
           
           if [ -z "$NEW_FILES" ]; then
