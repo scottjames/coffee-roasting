@@ -20,6 +20,10 @@ jobs:
         with:
           fetch-depth: 2  # fetch current and previous commit to detect changes
 
+      - name: Install ImageMagick
+        #run: sudo apt-get update && sudo apt-get install -y imagemagick
+        run: sudo apt-get install -y imagemagick
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -102,11 +106,16 @@ jobs:
                 # Get current date
                 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
-                # Get alog image
+                # Get alog image, make smaller image
                 IMG="/coffee-roasting/logs/img/${filename}.png"
+                SM="/coffee-roasting/logs/img/${filename}.small.png"
+                IFILE="../logs/img/${filename}.png"
+                SFILE="../logs/img/${filename}.small.png"
+                convert "$IFILE" -resize 50% "$SFILE"
                 
                 # Append link to README
-                echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
+                #echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
+                echo "- [${filename}](${filename}.md) [:framed_picture:]($SM) - Generated on ${DATE}" >> md/README.md
                 #echo "- [${filename}](${filename}.md) [image]($IMG)" >> md/README.md
                 
                 echo "Added ${filename} to README.md"
