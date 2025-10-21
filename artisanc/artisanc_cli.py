@@ -53,7 +53,11 @@ class AlogParser:
         metrics['batch_size'] = self.data.get('weight', [0, 0, 'N/A'])
         metrics['beans'] = self.data.get('beans', 'N/A')
         metrics['color'] = self.data.get('ground_color', 'N/A')
-        
+
+        metrics['roastbatchnr'] = self.data.get('roastbatchnr', 'N/A')
+        metrics['roastbatchprefix'] = self.data.get('roastbatchprefix', 'N/A')
+        metrics['roastbatchpos'] = self.data.get('roastbatchpos', 'N/A')
+
         # Get computed data if available
         computed = self.data.get('computed', {})
         
@@ -294,7 +298,11 @@ class OutputFormatter:
         batch = metrics.get('batch_size', [])
         if isinstance(batch, list) and len(batch) >= 3:
             lines.append(f"Batch Size       : {batch[0]}{batch[2]} → {batch[1]}{batch[2]}")
-        
+
+        lines.append(f"Roast Batch      : {metrics.get('roastbatchnr', 'N/A')}")
+        lines.append(f"Roast Prefix     : {metrics.get('roastbatchprefix', 'N/A')}")
+        lines.append(f"Roast Posn       : {metrics.get('roastbatchpos', 'N/A')}")
+
         lines.append(f"Beans            : {metrics.get('beans', 'N/A')}")
         lines.append(f"Color            : {metrics.get('color', 'N/A')}")
         lines.append(f"Weight Loss      : {metrics.get('weight_loss', 'N/A')}")
@@ -347,6 +355,10 @@ class OutputFormatter:
         if isinstance(batch, list) and len(batch) >= 3:
             lines.append(f"**Batch Size**: {batch[0]}{batch[2]} → {batch[1]}{batch[2]}  ")
         
+        lines.append(f"**Roast Batch**: {metrics.get('roastbatchnr', 'N/A')}")
+        lines.append(f"**Roast Prefix**: {metrics.get('roastbatchprefix', 'N/A')}")
+        lines.append(f"**Roast Posn**: {metrics.get('roastbatchpos', 'N/A')}")
+
         lines.append(f"**Beans**: {metrics.get('beans', 'N/A')}  ")
         lines.append(f"**Color**: {metrics.get('color', 'N/A')}  ")
         lines.append(f"**Weight Loss**: {metrics.get('weight_loss', 'N/A')}  ")
