@@ -135,6 +135,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           git add md/*.md
+          git add logs/img/*.png
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
