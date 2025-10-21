@@ -2,8 +2,14 @@ name: Process New .alog Files
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - '**/*.alog'
+      - 'log/*.alog'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   process-alog:
@@ -11,28 +17,112 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # fetch current and previous commit to detect changes
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
+          python -m venv venv
+          source venv/bin/activate
           python -m pip install --upgrade pip
-          # pip install -r requirements.txt  # Uncomment if you have dependencies
+          pip install -r artisanc/requirements.txt  # Uncomment if you have dependencies
 
-      - name: List new .alog files
-        id: find_alog
+      - name: Detect new log files
+        id: detect
         run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '\.alog$' > alog_files.txt || true
-          cat alog_files.txt
+          # Get list of new or modified files in log/ directory
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            # If manually triggered, process all log files
+            NEW_FILES=$(find log/ -type f -name "*.log" 2>/dev/null || echo "")
+          else
+            # Get files changed in the last commit
+            NEW_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep '^log/.*\.log$' || echo "")
+          fi
+          
+          if [ -z "$NEW_FILES" ]; then
+            echo "No new log files detected"
+            echo "has_new_files=false" >> $GITHUB_OUTPUT
+          else
+            echo "New log files detected:"
+            echo "$NEW_FILES"
+            echo "$NEW_FILES" > new_log_files.txt
+            echo "has_new_files=true" >> $GITHUB_OUTPUT
+          fi
 
-      - name: process new alog files
-        if: success()
+      - name: Process log files
+        if: steps.detect.outputs.has_new_files == 'true'
         run: |
-          while read file; do
-            if [ -f "$file" ]; then
-              python artisanc/artisanc_cli.py "$file"
+          source venv/bin/activate
+          
+          # Create md directory if it doesn't exist
+          mkdir -p md
+          
+          # Process each new log file
+          while IFS= read -r log_file; do
+            if [ -f "$log_file" ]; then
+              echo "Processing $log_file"
+              
+              # Extract filename without path and extension
+              filename=$(basename "$log_file" .log)
+              
+              # Run client.py and redirect output to markdown file
+              python client.py "$log_file" > "md/${filename}.md"
+              
+              echo "Created md/${filename}.md"
             fi
-          done < alog_files.txt
+          done < new_log_files.txt
+      
+
+      - name: Update README.md
+        if: steps.detect.outputs.has_new_files == 'true'
+        run: |
+          # Create README.md if it doesn't exist
+          if [ ! -f md/README.md ]; then
+            cat > md/README.md << 'EOF'
+# Log Analysis Reports
+
+This directory contains automatically generated analysis reports from log files.
+
+## Reports
+
+EOF
+          fi
+          
+          # Add links to newly processed files
+          while IFS= read -r log_file; do
+            if [ -f "$log_file" ]; then
+              filename=$(basename "$log_file" .log)
+              
+              # Check if link already exists in README
+              if ! grep -q "\[${filename}\]" md/README.md; then
+                # Get current date
+                DATE=$(date '+%Y-%m-%d %H:%M:%S')
+                
+                # Append link to README
+                echo "- [${filename}](${filename}.md) - Generated on ${DATE}" >> md/README.md
+                
+                echo "Added ${filename} to README.md"
+              fi
+            fi
+          done < new_log_files.txt
+      
+      - name: Commit and push changes
+        if: steps.detect.outputs.has_new_files == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add md/*.md
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Generate markdown reports for new log files [skip ci]"
+            git push
+          fi
+
