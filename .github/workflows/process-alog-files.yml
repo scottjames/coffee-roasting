@@ -123,7 +123,7 @@ jobs:
                 if [ -f "$IFILE" ]; then
                   ILINK="[image](/coffee-roasting/$IFILE)"
                 fi
-                BATCH=$(python artisanc/artisanc_cli.py --metrics -o json "$log_file" | jq .roastbatch)
+                BATCH=$(python artisanc/artisanc_cli.py --metrics -o json "$log_file" | jq .roastbatch | tr -d '"')
                 LABEL="**$BATCH** ${filename}"
                 echo "- [${LABEL}](${filename}.md) $ILINK - added ${DATE}" >> md/README.md
                 #echo "- [${filename}](${filename}.md) [ :framed_picture: ]($SM) - added ${DATE}" >> md/README.md
