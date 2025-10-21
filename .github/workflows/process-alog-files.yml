@@ -83,7 +83,7 @@ jobs:
         run: |
           # Create README.md if it doesn't exist
           if [ ! -f md/README.md ]; then
-            cat > md/README.md << 'EOF'
+            cat > md/README.md <<'EOF'
             # Log Analysis Reports
             This directory contains automatically generated analysis reports from log files.
             ## Reports
