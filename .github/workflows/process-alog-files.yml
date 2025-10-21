@@ -101,9 +101,13 @@ jobs:
               if ! grep -q "\[${filename}\]" md/README.md; then
                 # Get current date
                 DATE=$(date '+%Y-%m-%d %H:%M:%S')
+
+                # Get alog image
+                IMG="logs/img/${filename}.png"
                 
                 # Append link to README
-                echo "- [${filename}](${filename}.md) - Generated on ${DATE}" >> md/README.md
+                echo "- [${filename}](${filename}.md) [image]($IMG) - Generated on ${DATE}" >> md/README.md
+                #echo "- [${filename}](${filename}.md) [image]($IMG)" >> md/README.md
                 
                 echo "Added ${filename} to README.md"
               fi
