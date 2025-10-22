@@ -60,3 +60,4 @@ See links below for roast reports
 - [**rst2(1)** roast_g3_25-08-31_1240](roast_g3_25-08-31_1240.md)  - added 2025-10-21 12:12:22
 - [**rst3(1)** roast_g4_25-09-06_1420](roast_g4_25-09-06_1420.md)  - added 2025-10-21 12:12:22
 - [**0(1)** sim-25-08-21_0812](sim-25-08-21_0812.md)  - added 2025-10-21 12:12:22
+- [**R31(3)** roast_25-10-18_1204](roast_25-10-18_1204.md) [image](/coffee-roasting/logs/img/roast_25-10-18_1204.png) - added 2025-10-22 12:13:41
