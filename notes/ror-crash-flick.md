@@ -25,3 +25,9 @@ Naturally processed coffees are much less likely to crash, so your approach to g
  lowering the gas settings in the early stages of first crack without causing a crash.
 
 
+ - From https://mill47.coffee/blogs/take2/the-rise-crash-and-flick-what-they-are-and-how-to-avoidthem#:~:text=If%20the%20bean%20temperature%20crashes,in%20a%20very%20delicate%20state.
+ - and https://mill47.coffee/blogs/take2/how-to-manage-rate-of-rise
+
+
+
+
