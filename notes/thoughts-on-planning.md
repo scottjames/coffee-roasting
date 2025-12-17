@@ -52,7 +52,7 @@ NOTE: to compare two beans, align at DE (yellow) to ignore drying, and compare a
 
 ### First Crack
  - Happens around 190c.
- - Distrinct "raw" grassy flavor always there until 390f (197c)
+ - Distinct "raw" grassy flavor always there until 390f (197c)
 
 ### Second Crack
  - Happens around 222c. (430F)
