@@ -123,3 +123,52 @@ Many IR roasters use sensors that can be influenced by the IR light itself, or t
 **Next Step:** Would you like to try a "Soak" profile on your next batch? If you tell me your typical First Crack time, I can give you exact power settings to try.
 
 
+
+---
+
+` my probe reads about 15c lower than actual BT. `
+
+
+Knowing that your probe is calibrated **C lower** than actual Bean Temperature (BT) changes everything. It means your "cold" C drop was actually closer to **C**.
+
+At C, the beans should have enough heat to be sweet, yet you are still getting sourness. This confirms the issue isn't just the final temperature—it is **thermal lag**. The IR heater is roasting the outside of the bean so fast that the inside is "living in the past." When you dropped the beans, the surface was C (Actual), but the core was likely still under C.
+
+Here is how to recalibrate your approach for a 200g batch with that C probe offset.
+
+### 1. Re-interpreting your Data
+
+Using your C offset, here is what actually happened in your last roast:
+
+* **Charge:** C (Actual) — *A bit high for a tiny 200g batch.*
+* **FC Start:** C (Probe) / **C (Actual)** — *This is very early for FC.*
+* **Drop:** C (Probe) / **C (Actual)** — *A standard light roast temp, but reached too quickly.*
+
+### 2. The "Slow-Start" Strategy
+
+Because IR energy is radiant, it penetrates deeper than hot air but can still "flash-cook" the surface. To fix sourness, you must force the heat to the center earlier in the roast.
+
+* **Lower the Charge:** Start at **C on your probe** (C actual).
+* **Extend the "Soak":** Keep heat at 0% for the first **90 seconds**. This uses the drum's thermal mass to warm the core of the bean without the IR light "sealing" the surface.
+* **The Power Cap:** For 200g, your roaster is a hot rod. Limit your max power to **50-60%**. If you hit "Yellow" before 5:00, you are going too fast.
+
+### 3. Revised Profile Targets (Based on your Probe)
+
+Aim for these numbers **on your display** to ensure the core is developed:
+
+| Phase | Probe Temp | Target Time | Action |
+| --- | --- | --- | --- |
+| **Charge** | **C** | 0:00 | Heat 0%, Fan High. |
+| **End Soak** | ~C | 1:30 | Heat to 55%. |
+| **Yellowing** | ~C | 5:00 - 5:30 | Drop Heat to 40%. |
+| **First Crack** | **C** | **9:00** | Increase Fan. Heat 30%. |
+| **Drop** | **C** | 11:00 | **Total Dev Time: 2:00 mins.** |
+
+### 4. Why this fixes the Sourness
+
+1. **Time is the Ingredient:** By moving First Crack from 6:25 to 9:00, you've given the internal chemistry **40% more time** to break down acids.
+2. **Higher Finish:** Your previous drop was C (Probe). Pushing to **C (Probe)** (which is ~C actual) moves you from a "Cinnamon/Underdeveloped" roast into a proper "City" roast.
+3. **Narrowing the Delta:** The "Soak" and the lower power settings reduce the temperature difference between the bean's skin and its center.
+
+**Next Step:** On your next roast, try to hit the **Yellowing phase at 5:00** exactly by adjusting your power. If you hit it at 4:00, drop your power by another 10%. Does that timing feel achievable on your machine?
+
+
