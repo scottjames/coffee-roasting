@@ -148,3 +148,4 @@ See links below for roast reports
 - [**R34(3)** roast_25-10-25_1609](roast_25-10-25_1609.md) [image](/coffee-roasting/logs/img/roast_25-10-25_1609.png) - added 2026-01-06 13:16:40
 - [**R41(1)** roast_26-01-11_1347](roast_26-01-11_1347.md) [image](/coffee-roasting/logs/img/roast_26-01-11_1347.png) - added 2026-01-11 19:49:00
 - [**R42(2)** roast_26-01-11_1410](roast_26-01-11_1410.md) [image](/coffee-roasting/logs/img/roast_26-01-11_1410.png) - added 2026-01-11 21:16:41
+- [**R42(2)** roast_26-01-11_1410](roast_26-01-11_1410.md) [image](/coffee-roasting/logs/img/roast_26-01-11_1410.png) - added 2026-01-16 13:05:41
