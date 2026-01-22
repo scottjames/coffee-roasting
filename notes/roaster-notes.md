@@ -23,6 +23,9 @@ Heat | Air  | ROR
 - After TP set BURNER heat around 50
 - After DE, use 50 - 40 settings.
 
+Based on Kaleido video https://www.youtube.com/watch?v=1nweTp-TiZ4
+- Aim for TP of 0:45 - 0:60 to avoid roast defects, but also build roast momentum.
+
 ## Target:
 
 ** batch size 150 grams **
