@@ -21,5 +21,7 @@ This is list of things to change or improve on the 500g roaster.
 - display AUC as LCD at top of screen
 - use half-heigh sliders
 - setup PID with SV slider
+  - Kaleido PID uses: kP=15 ki=0.07 kd=0.06
+  - see https://www.youtube.com/watch?v=AB6nMEaEIZU&t=1265s
 
 
