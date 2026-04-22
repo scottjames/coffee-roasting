@@ -60,14 +60,14 @@ ALARM_ACTION = {
     0:  "Pop-up message",
     1:  "Call program",
     2:  "Set SV bottom",
-    3:  "Set SV bottom",   # documented duplicate in artisan source
+    3:  "Set Fan",   # TC4 (documented duplicate in artisan source)
     4:  "Set SV",
     5:  "Start timer",
-    6:  "Set fan speed / event",
+    6:  "Set Burner", # TC4
     7:  "Set drum speed / event",
     8:  "Set damper / event",
     9:  "Set burner / event",
-    10: "Set SV",
+    10: "Set SV2",
     11: "Set heater",
     12: "Set fan",
     13: "Set drum",
@@ -329,26 +329,28 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
                                   fontSize=7.5, textColor=colors.HexColor("#333333"),
                                   leading=10)
     label_style = ParagraphStyle("label", parent=styles["Normal"],
-                                  fontSize=8, textColor=colors.HexColor("#1a1a2e"),
+                                  fontSize=8, textColor=colors.HexColor("#111122"),
                                   leading=10)
 
     story = []
 
     # Title block
-    story.append(Paragraph("Artisan Alarm Configuration", title_style))
+    # story.append(Paragraph("Artisan Alarm Configuration", title_style))
+    title = f"{Path(out_path).stem}".replace("_alarms","")
+    story.append(Paragraph(f"{title}", title_style))
     enabled_count = sum(1 for a in alarms if a.enabled)
     story.append(Paragraph(
         f"{len(alarms)} alarms total &nbsp;·&nbsp; {enabled_count} enabled &nbsp;·&nbsp; "
-        f"Source file: <i>{Path(out_path).stem}</i>",
-        sub_style
+        # f"Artisan file: <i>{Path(out_path).stem}</i>"
+        , sub_style
     ))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#cccccc"), spaceAfter=8))
 
     # Table headers
     col_labels = ["#", "On", "Phase", "Offset", "Guard", "NegGuard",
                   "Source", "Cond", "Temp°", "Action", "Beep", "Label / Notes"]
-    col_widths  = [0.25, 0.25, 0.85, 0.55, 0.75, 0.75,
-                   0.65, 0.65, 0.5,  1.4,  0.35, 2.8]  # inches
+    col_widths  = [0.35, 0.3, 0.85, 0.55, 0.75, 0.75,
+                   0.65, 0.65, 0.5,  1.4,  0.4, 2.5]  # inches
     col_widths  = [w * inch for w in col_widths]
 
     header_row = [Paragraph(f"<b>{h}</b>", note_style) for h in col_labels]
@@ -361,9 +363,9 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
         "FC END":   "#ffd0cc",
         "SC START": "#f0ccff",
         "SC END":   "#e8ccff",
-        "DROP":     "#ccffe8",
+        "DROP":     "#f5f5f5", #"#ccffe8",
         "COOL END": "#e0f0ff",
-        "TP":       "#f5f5f5",
+        "TP":       "#ccffe8", #"#f5f5f5",
     }
 
     row_phase_colors = []
@@ -389,7 +391,7 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
 
     # Base style
     ts = [
-        ("BACKGROUND",   (0,0),  (-1,0),  colors.HexColor("#1a1a2e")),
+        ("BACKGROUND",   (0,0),  (-1,0),  colors.HexColor("#c7c7da")),
         ("TEXTCOLOR",    (0,0),  (-1,0),  colors.white),
         ("FONTNAME",     (0,0),  (-1,0),  "Helvetica-Bold"),
         ("FONTSIZE",     (0,0),  (-1,0),  8),
