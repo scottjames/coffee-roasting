@@ -326,7 +326,7 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
                                   fontSize=9, textColor=colors.HexColor("#555555"),
                                   spaceAfter=10)
     note_style  = ParagraphStyle("note", parent=styles["Normal"],
-                                  fontSize=7.5, textColor=colors.HexColor("#333333"),
+                                  fontSize=8, textColor=colors.HexColor("#333333"),
                                   leading=10)
     label_style = ParagraphStyle("label", parent=styles["Normal"],
                                   fontSize=8, textColor=colors.HexColor("#111122"),
