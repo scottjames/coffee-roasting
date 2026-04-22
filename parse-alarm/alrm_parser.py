@@ -329,8 +329,8 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
                                   fontSize=8, textColor=colors.HexColor("#333333"),
                                   leading=10)
     label_style = ParagraphStyle("label", parent=styles["Normal"],
-                                  fontSize=8, textColor=colors.HexColor("#111122"),
-                                  leading=10)
+                                  fontSize=9, textColor=colors.HexColor("#111122"),
+                                  leading=10, fontweight="bold")
 
     story = []
 
@@ -340,7 +340,7 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
     story.append(Paragraph(f"{title}", title_style))
     enabled_count = sum(1 for a in alarms if a.enabled)
     story.append(Paragraph(
-        f"{len(alarms)} alarms total &nbsp;·&nbsp; {enabled_count} enabled &nbsp;·&nbsp; "
+        f"{len(alarms)} alarms total &nbsp;·&nbsp; {enabled_count} enabled "
         # f"Artisan file: <i>{Path(out_path).stem}</i>"
         , sub_style
     ))
@@ -350,7 +350,7 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
     col_labels = ["#", "On", "Phase", "Offset", "Guard", "NegGuard",
                   "Source", "Cond", "Temp°", "Action", "Beep", "Label / Notes"]
     col_widths  = [0.35, 0.3, 0.85, 0.55, 0.75, 0.75,
-                   0.65, 0.65, 0.5,  1.4,  0.4, 2.5]  # inches
+                   0.65, 0.65, 0.5,  1.4,  0.45, 2.5]  # inches
     col_widths  = [w * inch for w in col_widths]
 
     header_row = [Paragraph(f"<b>{h}</b>", note_style) for h in col_labels]
@@ -373,16 +373,16 @@ def fmt_pdf(alarms: list[Alarm], explain: bool, out_path: str):
         row = [
             Paragraph(str(a.index), note_style),
             Paragraph("<b>✓</b>" if a.enabled else "<font color='#aaaaaa'>✗</font>", note_style),
-            Paragraph(f"<b>{a.phase}</b>", note_style),
-            Paragraph(fmt_time(a.offset_sec), note_style),
+            Paragraph(a.phase, note_style),
+            Paragraph(f"<b>{fmt_time(a.offset_sec)}</b>", note_style),
             Paragraph(a.guard, note_style),
             Paragraph(a.neg_guard, note_style),
             Paragraph(a.source, note_style),
             Paragraph(a.cond, note_style),
-            Paragraph(f"{a.temperature:.0f}°" if a.temperature > 0 else "—", note_style),
-            Paragraph(a.action, note_style),
+            Paragraph(f"<b>{a.temperature:.0f}°</b>" if a.temperature > 0 else "—", note_style),
+            Paragraph(f"<b>{a.action}</b>", note_style),
             Paragraph("✓" if a.beep else "—", note_style),
-            Paragraph(a.label, label_style),
+            Paragraph(f"<b>{a.label}</b>" if a.label else "—", label_style),
         ]
         table_data.append(row)
         row_phase_colors.append(PHASE_COLORS.get(a.phase, "#ffffff"))
