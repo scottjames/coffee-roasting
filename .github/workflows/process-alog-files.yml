@@ -18,11 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # fetch current and previous commit to detect changes
-
-#      - name: Install ImageMagick
-#        #run: sudo apt-get update && sudo apt-get install -y imagemagick
-#        run: sudo apt-get install -y imagemagick
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,14 +28,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m venv venv
-          source venv/bin/activate
-          python -m pip install --upgrade pip
-          pip install -r artisanc/requirements.txt  # Uncomment if you have dependencies
-          pip install Pillow
+          ./venv/bin/python -m pip install --upgrade pip
+          ./venv/bin/pip install -r artisanc/requirements.txt
+          ./venv/bin/pip install -r parse-alarm/requirements.txt
+          ./venv/bin/pip install Pillow jq
 
       - name: Detect new log files
         id: detect
         run: |
+          set -e
+          
           # Get list of new or modified files in logs/ directory
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             # If manually triggered, process all log files
@@ -48,25 +46,23 @@ jobs:
             # Get files changed in the last commit
             NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
           fi
-          # HACK for testing
-          #NEW_FILES="logs/roast_25-10-11_1333.alog"
           
+          # Only run if there are new *.alog files
           if [ -z "$NEW_FILES" ]; then
             echo "No new log files detected"
-            echo "has_new_files=false" >> $GITHUB_OUTPUT
+            echo "has_new_alog_files=false" >> $GITHUB_OUTPUT
           else
             echo "New log files detected:"
             echo "$NEW_FILES"
             echo "$NEW_FILES" > new_log_files.txt
-            echo "has_new_files=true" >> $GITHUB_OUTPUT
+            echo "has_new_alog_files=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Process log files
-        if: steps.detect.outputs.has_new_files == 'true'
+        if: steps.detect.outputs.has_new_alog_files == 'true'
         run: |
-          source venv/bin/activate
+          set -e
           
-          # Create md directory if it doesn't exist
           mkdir -p md
           
           # Process each new log file
@@ -77,26 +73,32 @@ jobs:
               # Extract filename without path and extension
               filename=$(basename "$log_file" .alog)
               
-              # Run artisanc/artisan_cli.py and redirect output to markdown file
-              python artisanc/artisanc_cli.py --metrics -o md "$log_file" > "md/${filename}.md"
+              # Run artisanc CLI and redirect output to markdown file
+              ./venv/bin/python artisanc/artisanc_cli.py --metrics -o md "$log_file" > "md/${filename}.md"
               
               echo "Created md/${filename}.md"
+            else
+              echo "Warning: File not found: $log_file"
             fi
           done < new_log_files.txt
       
 
       - name: Update README.md
-        if: steps.detect.outputs.has_new_files == 'true'
+        if: steps.detect.outputs.has_new_alog_files == 'true'
         run: |
-          source venv/bin/activate
-          # Create README.md if it doesn't exist
-          #if [ ! -f md/README.md ]; then
-          #  cat > md/README.md <<'EOF'
-          #  # Log Analysis Reports
-          #  This directory contains automatically generated analysis reports from log files.
-          #  ## Reports
-          #  EOF
-          #fi
+          set -e
+          
+          # Initialize README.md if it doesn't exist
+          if [ ! -f md/README.md ]; then
+            cat > md/README.md <<'EOF'
+# Log Analysis Reports
+
+This directory contains automatically generated analysis reports from log files.
+
+## Reports
+
+EOF
+          fi
           
           # Add links to newly processed files
           while IFS= read -r log_file; do
@@ -107,27 +109,15 @@ jobs:
               if ! grep -q "\[${filename}\]" md/README.md; then
                 # Get current date
                 DATE=$(date '+%Y-%m-%d %H:%M:%S')
-
-                # Get alog image, make smaller image
-                IMG="/coffee-roasting/logs/img/${filename}.png"
-                SM="/coffee-roasting/logs/img/${filename}.small.png"
-                IFILE="logs/img/${filename}.png"
-                SFILE="logs/img/${filename}.small.png"
-                #convert "$IFILE" -resize 50% "$SFILE"
-
-                # Resize to specific height (auto width)
-                #python -m PIL "$IFILE" --size 0x300 --output "$SFILE"
+                
+                # Extract roast batch info from log file
+                BATCH=$(./venv/bin/python artisanc/artisanc_cli.py --metrics -o json "$log_file" 2>/dev/null | jq -r '.roastbatch // "Unknown"' || echo "Unknown")
+                
+                # Build label with batch info
+                LABEL="**${BATCH}** - ${filename}"
                 
                 # Append link to README
-                ILINK=""
-                if [ -f "$IFILE" ]; then
-                  ILINK="[image](/coffee-roasting/$IFILE)"
-                fi
-                BATCH=$(python artisanc/artisanc_cli.py --metrics -o json "$log_file" | jq .roastbatch | tr -d '"')
-                LABEL="**$BATCH** ${filename}"
-                echo "- [${LABEL}](${filename}.md) $ILINK - added ${DATE}" >> md/README.md
-                #echo "- [${filename}](${filename}.md) [ :framed_picture: ]($SM) - added ${DATE}" >> md/README.md
-                #echo "- [${filename}](${filename}.md) [image]($IMG)" >> md/README.md
+                echo "- [${LABEL}](${filename}.md) - added ${DATE}" >> md/README.md
                 
                 echo "Added ${filename} to README.md"
               fi
@@ -135,18 +125,21 @@ jobs:
           done < new_log_files.txt
       
       - name: Commit and push changes
-        if: steps.detect.outputs.has_new_files == 'true'
+        if: steps.detect.outputs.has_new_alog_files == 'true'
         run: |
+          set -e
+          
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          git add md/*.md
-          git add logs/img/*.png
+          git add md/ --force
+          git add logs/img/*.png 2>/dev/null || true
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Generate markdown reports for new log files [skip ci]"
             git push
+            echo "Successfully pushed changes"
           fi
 
