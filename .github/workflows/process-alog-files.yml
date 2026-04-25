@@ -119,10 +119,10 @@ jobs:
               
               # Check if filename already exists in README
               if grep -q "(${filename}.md)" md/README.md; then
-                # Replace existing entry with new one
-                sed -i "" "/(${filename}\.md)/c\\
-          ${NEW_ENTRY}
-          " md/README.md
+                # Replace existing entry: remove old entry and add new one
+                grep -v "(${filename}.md)" md/README.md > md/README.md.tmp
+                mv md/README.md.tmp md/README.md
+                echo "${NEW_ENTRY}" >> md/README.md
                 echo "Updated ${filename} in README.md"
               else
                 # Add new entry
