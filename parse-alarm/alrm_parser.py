@@ -264,8 +264,8 @@ def fmt_json(alarms: list[Alarm], explain: bool) -> str:
 
 # ── MARKDOWN ──────────────────────────────────
 
-def fmt_markdown(alarms: list[Alarm], explain: bool) -> str:
-    lines = ["# Artisan Alarm Configuration\n"]
+def fmt_markdown(alarms: list[Alarm], explain: bool, input_file: str) -> str:
+    lines = [f"# Artisan Alarm: {input_file}\n"]
     header = "| " + " | ".join(COLUMNS) + " |"
     sep    = "| " + " | ".join(["---"] * len(COLUMNS)) + " |"
     lines += [header, sep]
@@ -484,7 +484,7 @@ def main():
             print(out)
 
     elif fmt in ("md", "markdown"):
-        out = fmt_markdown(alarms, args.explain)
+        out = fmt_markdown(alarms, args.explain, Path(args.file).stem)  # pass input file for title generation
         if args.output:
             Path(args.output).write_text(out)
             print(f"Markdown written to: {args.output}")
