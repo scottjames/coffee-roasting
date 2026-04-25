@@ -1,0 +1,26 @@
+# artisan custom filename
+
+Autosave the *.alog file with alpha-sortable format, and include roast batch number and bean description.
+
+- Go to Config → Options → File
+- Find “File Name Pattern”
+- Define a custom pattern using placeholders
+
+Examples:
+- `~batch_~date_~time_~beans_10`
+- `~batch_~date_~time_~beans_15`
+
+
+Set mask here:
+- Config -> Autosave -> Filename prefix
+- SET THIS MASK:   ~date_~time_~batch_~beans_10
+
+Notes:
+
+Replace “nn” with 10, 15, 20, 25, or 30 to show the first “nn” characters of the Beans field.
+From Roast>Properties>Beans
+
+** be sure to make 'Beans' entry at least 10+ chars, otherwise spaces get put into filename **
+
+for example, change 'caturra' to 'caturra_amazon_24'
+
