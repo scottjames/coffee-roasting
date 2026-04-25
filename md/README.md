@@ -3,14 +3,6 @@
 
 See links below for roast reports
 
-- [**R11(1)** roast_25-09-21_1350](roast_25-09-21_1350.md) [image](/coffee-roasting/logs/img/roast_25-09-21_1350.png) - added 2025-10-25 21:01:32
-- [**R12(2)** roast_25-09-21_1408](roast_25-09-21_1408.md) [image](/coffee-roasting/logs/img/roast_25-09-21_1408.png) - added 2025-10-25 21:01:32
-- [**R14(1)** roast_25-09-27_1236_R14](roast_25-09-27_1236_R14.md) [image](/coffee-roasting/logs/img/roast_25-09-27_1236_R14.png) - added 2025-10-25 21:01:32
-- [**R15(2)** roast_25-09-27_1253_R15](roast_25-09-27_1253_R15.md) [image](/coffee-roasting/logs/img/roast_25-09-27_1253_R15.png) - added 2025-10-25 21:01:32
-- [**R16(1)** roast_25-09-27_1433_R16](roast_25-09-27_1433_R16.md) [image](/coffee-roasting/logs/img/roast_25-09-27_1433_R16.png) - added 2025-10-25 21:01:32
-- [**R17(1)** roast_25-09-28_1507](roast_25-09-28_1507.md) [image](/coffee-roasting/logs/img/roast_25-09-28_1507.png) - added 2025-10-25 21:01:32
-- [**R18(2)** roast_25-09-28_1617](roast_25-09-28_1617.md) [image](/coffee-roasting/logs/img/roast_25-09-28_1617.png) - added 2025-10-21 12:12:21
-- [**R19(1)** roast_25-10-04_1155](roast_25-10-04_1155.md) [image](/coffee-roasting/logs/img/roast_25-10-04_1155.png) - added 2025-10-21 12:12:21
 - [**R20(2)** roast_25-10-04_1229](roast_25-10-04_1229.md) [image](/coffee-roasting/logs/img/roast_25-10-04_1229.png) - added 2025-12-28 17:08:31
 - [**R21(1)** roast_25-10-04_1535](roast_25-10-04_1535.md) [image](/coffee-roasting/logs/img/roast_25-10-04_1535.png) - added 2025-10-25 21:01:32
 - [**R22(2)** roast_25-10-04_1600](roast_25-10-04_1600.md) [image](/coffee-roasting/logs/img/roast_25-10-04_1600.png) - added 2025-10-25 21:01:32
@@ -39,27 +31,11 @@ See links below for roast reports
 - [**R43(1)** roast_26-02-08_1358](roast_26-02-08_1358.md) [image](/coffee-roasting/logs/img/roast_26-02-08_1358.png) - added 2026-02-17 12:49:31
 - [**R44(2)** roast_26-02-08_1419](roast_26-02-08_1419.md) [image](/coffee-roasting/logs/img/roast_26-02-08_1419.png) - added 2026-03-02 14:41:03
 - [**R47(1)** roast_26-03-22_1232](roast_26-03-22_1232.md) [image](/coffee-roasting/logs/img/roast_26-03-22_1232.png) - added 2026-03-22 17:40:48
-- [**R47(1)** roast_26-03-22_1232](roast_26-03-22_1232.md) [image](/coffee-roasting/logs/img/roast_26-03-22_1232.png) - added 2026-03-25 13:48:44
 - [**R48(2)** roast_26-03-22_1249](roast_26-03-22_1249.md) [image](/coffee-roasting/logs/img/roast_26-03-22_1249.png) - added 2026-03-26 12:35:35
 - [**R51(1)** roast_26-03-29_1449](roast_26-03-29_1449.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1449.png) - added 2026-03-29 19:36:30
 - [**R52(2)** roast_26-03-29_1506](roast_26-03-29_1506.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1506.png) - added 2026-03-29 19:38:12
 - [**R51(1)** roast_26-03-29_1449](roast_26-03-29_1449.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1449.png) - added 2026-04-03 13:24:29
 - [**R52(2)** roast_26-03-29_1506](roast_26-03-29_1506.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1506.png) - added 2026-04-05 16:42:41
-- [**R47(1)** roast_26-03-22_1232](roast_26-03-22_1232.md) [image](/coffee-roasting/logs/img/roast_26-03-22_1232.png) - added 2026-04-12 12:34:03
-- [**R0(1)** roast_26-03-29_1342](roast_26-03-29_1342.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1342.png) - added 2026-04-19 16:53:06
-- [**R43(1)** roast_26-03-29_1346](roast_26-03-29_1346.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1346.png) - added 2026-04-19 16:53:06
-- [**R51(2)** roast_26-03-29_1355](roast_26-03-29_1355.md) [image](/coffee-roasting/logs/img/roast_26-03-29_1355.png) - added 2026-04-19 16:53:06
-- [**R54(2)** roast_26-04-19_1218](roast_26-04-19_1218.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1218.png) - added 2026-04-19 16:56:16
-- [**R54(2)** roast_26-04-19_1218](roast_26-04-19_1218.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1218.png) - added 2026-04-21 12:39:40
-- [**R53(1)** roast_26-04-19_1157](roast_26-04-19_1157.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1157.png) - added 2026-04-22 11:28:56
-- [**R53(1)** roast_26-04-19_1157](roast_26-04-19_1157.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1157.png) - added 2026-04-25 17:25:38
-- [**R54(2)** roast_26-04-19_1218](roast_26-04-19_1218.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1218.png) - added 2026-04-25 17:25:39
-- [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 17:25:39
-- [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 17:42:28
-- [**R56(2)** roast_26-04-25_1251_R56_sumatra_25](roast_26-04-25_1251_R56_sumatra_25.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1251_R56_sumatra_25.png) - added 2026-04-25 17:42:28
-- [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 18:14:52
-- [**R54(2)** roast_26-04-19_1218_R54_sumatra_25](roast_26-04-19_1218_R54_sumatra_25.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1218_R54_sumatra_25.png) - added 2026-04-25 19:56:19
-- [**R0(1)** roast_26-04-25_1200_R0_brazil_250](roast_26-04-25_1200_R0_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1200_R0_brazil_250.png) - added 2026-04-25 19:56:19
 
 ## Alarm Reports
 
