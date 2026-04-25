@@ -91,13 +91,13 @@ jobs:
           # Initialize README.md if it doesn't exist
           if [ ! -f md/README.md ]; then
             cat > md/README.md <<'EOF'
-# Log Analysis Reports
+          # Log Analysis Reports
 
-This directory contains automatically generated analysis reports from log files.
+          This directory contains automatically generated analysis reports from log files.
 
-## Reports
+          ## Reports
 
-EOF
+          EOF
           fi
           
           # Add links to newly processed files
