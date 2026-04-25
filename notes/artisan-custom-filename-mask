@@ -13,7 +13,7 @@ Examples:
 
 Set mask here:
 - Config -> Autosave -> Filename prefix
-- SET THIS MASK:   ~date_~time_~batch_~beans_10
+- SET THIS MASK:   roast_~date_~time_~batch_~beans_10
 
 Notes:
 
