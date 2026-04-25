@@ -60,3 +60,7 @@ See links below for roast reports
 - [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 18:14:52
 - [**R54(2)** roast_26-04-19_1218_R54_sumatra_25](roast_26-04-19_1218_R54_sumatra_25.md) [image](/coffee-roasting/logs/img/roast_26-04-19_1218_R54_sumatra_25.png) - added 2026-04-25 19:56:19
 - [**R0(1)** roast_26-04-25_1200_R0_brazil_250](roast_26-04-25_1200_R0_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1200_R0_brazil_250.png) - added 2026-04-25 19:56:19
+
+## Alarm Reports
+
+- [trigger-alarms-18-250g](trigger-alarms-18-250g.md) - added 2026-04-25 21:58:39
