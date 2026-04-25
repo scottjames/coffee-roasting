@@ -57,3 +57,4 @@ See links below for roast reports
 - [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 17:25:39
 - [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 17:42:28
 - [**R56(2)** roast_26-04-25_1251_R56_sumatra_25](roast_26-04-25_1251_R56_sumatra_25.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1251_R56_sumatra_25.png) - added 2026-04-25 17:42:28
+- [**R55(1)** roast_26-04-25_1233_R55_brazil_250](roast_26-04-25_1233_R55_brazil_250.md) [image](/coffee-roasting/logs/img/roast_26-04-25_1233_R55_brazil_250.png) - added 2026-04-25 18:14:52
