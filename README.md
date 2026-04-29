@@ -13,6 +13,7 @@ This repo keeps my config file and logs of coffee roasted.
 Links:
  - [notes](notes/)
  - [markdown logs](md/)
+ - [markdown alarms](alarms/)
 
 
 ---
