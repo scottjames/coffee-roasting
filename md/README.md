@@ -1,4 +1,8 @@
 
+# Artisan Alarm configs
+
+- [**alarm config**](/coffee-roasting/md/ALRM.md)
+
 # Artisan Roast Log Reports
 
 See links below for roast reports
