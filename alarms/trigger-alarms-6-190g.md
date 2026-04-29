@@ -1,18 +1,20 @@
-| idx | en | trigger |
-|-----|----|---------|
-| 0 | Y | Trigger when ET > 120.0, 00:08 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP + beep |
-| 1 | Y | Trigger when unknown(-3) < 0.0, 00:02 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
-| 2 | Y | Trigger when unknown(-3) < 0.0, 00:05 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 3 | Y | Trigger when unknown(-3) < 0.0, 00:30 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 4 | Y | Trigger when unknown(-3) < 0.0, 00:30 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
-| 5 | Y | Trigger when unknown(-3) < 0.0, 01:00 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 6 | Y | Trigger when unknown(-3) < 0.0, 01:30 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 7 | Y | Trigger when unknown(-3) < 0.0, 01:45 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
-| 8 | Y | Trigger when unknown(-3) < 0.0, 02:00 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 9 | Y | Trigger when unknown(-3) < 0.0, 02:30 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
-| 10 | N | Trigger when unknown(-3) < 0.0, 01:15 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 11 | N | Trigger when unknown(-3) < 0.0, 01:30 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
-| 12 | N | Trigger when unknown(-3) < 0.0, 02:00 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 13 | Y | Trigger when unknown(-3) < 0.0, 10:00 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP + beep |
-| 14 | Y | Trigger when unknown(-3) < 0.0, 00:01 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → unknown(6) + beep |
-| 15 | Y | Trigger when unknown(-3) < 0.0, 00:02 after CHARGE, during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP, not during CHARGE/DRY/FC_START/FC_END/SC_START/SC_END/DROP → Slider + beep |
+# Artisan Alarm: trigger-alarms-6-190g
+
+| # | On | Phase | Offset | Guard | NegGuard | Source | Cond | Temp° | Action | Beep | Label |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | ✓ | CHARGE | 00:08 | — | — | BT | below | 120 | Pop-up message | ✓ | 120 Ready Charge |
+| 2 | ✓ | CHARGE | 00:02 | — | — | Time | above | — | Set Fan | ✓ | 40 |
+| 3 | ✓ | CHARGE | 00:05 | — | — | Time | above | — | Set Burner | ✓ | 30  # soak |
+| 4 | ✓ | CHARGE | 00:30 | — | — | Time | above | — | Set Burner | ✓ | 65 |
+| 5 | ✓ | CHARGE | 00:30 | — | — | Time | above | — | Set Fan | ✓ | 50 |
+| 6 | ✓ | CHARGE | 01:00 | — | — | Time | above | — | Set Burner | ✓ | 60 |
+| 7 | ✓ | CHARGE | 01:30 | — | — | Time | above | — | Set Burner | ✓ | 55 |
+| 8 | ✓ | CHARGE | 01:45 | — | — | Time | above | — | Set Fan | ✓ | 60 |
+| 9 | ✓ | CHARGE | 02:00 | — | — | Time | above | — | Set Burner | ✓ | 50 |
+| 10 | ✓ | CHARGE | 02:30 | — | — | Time | above | — | Set Fan | ✓ | 70 |
+| 11 | ✗ | FC START | 01:15 | — | — | Time | above | — | Set Burner | ✓ | 45 |
+| 12 | ✗ | FC START | 01:30 | — | — | Time | above | — | Set Fan | ✓ | 70 |
+| 13 | ✗ | FC START | 02:00 | — | — | Time | above | — | Set Burner | ✓ | 50 |
+| 14 | ✓ | CHARGE | 10:00 | — | — | Time | above | — | Pop-up message | ✓ | Drop by 10:30 |
+| 15 | ✓ | DROP | 00:01 | — | — | Time | above | — | Set Burner | ✓ | 0 |
+| 16 | ✓ | DROP | 00:02 | — | — | Time | above | — | Set Fan | ✓ | 100 |
