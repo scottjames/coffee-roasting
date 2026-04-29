@@ -115,7 +115,7 @@ jobs:
               LABEL="**${BATCH}** - ${filename}"
               
               # Create new entry
-              NEW_ENTRY="- [${LABEL}](${filename}.md) - [image](img/${filename}.png) - added ${DATE}"
+              NEW_ENTRY="- [${LABEL}](${filename}.md) - [image](/coffee-roasting/logs/img/${filename}.png) - added ${DATE}"
               
               # Check if filename already exists in README
               if grep -q "(${filename}.md)" md/README.md; then
