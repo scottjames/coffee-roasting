@@ -81,44 +81,45 @@ jobs:
             fi
           done < new_alarm_files.txt
 
-      - name: Update README.md
+      - name: Update ALRM.md
         if: steps.detect.outputs.has_new_alrm_files == 'true'
         run: |
           set -e
           
-          # Initialize md/README.md if it doesn't exist
-          if [ ! -f md/README.md ]; then
-            printf "%s\n" \
-              "# Analysis Reports" \
-              "" \
-              "This directory contains automatically generated analysis reports from roast logs and alarm configurations." \
-              "" \
-              "## Alarm Reports" \
-              "" \
-              > md/README.md
+          # Initialize md/ALRM.md if it doesn't exist
+          if [ ! -f md/ALRM.md ]; then
+            cat > md/ALRM.md <<'EOF'
+          # Alarm Configuration Reports
+
+          This directory contains automatically generated analysis reports from alarm configurations.
+
+          ## Alarm Reports
+
+          EOF
           fi
           
-          # Check if Alarm Reports section exists, if not add it
-          if ! grep -q "## Alarm Reports" md/README.md; then
-            echo "" >> md/README.md
-            echo "## Alarm Reports" >> md/README.md
-            echo "" >> md/README.md
-          fi
-          
-          # Add links to newly processed alarm files
+          # Add or replace links for newly processed alarm files
           while IFS= read -r alrm_file; do
             if [ -f "$alrm_file" ]; then
               filename=$(basename "$alrm_file" .alrm)
               
-              # Check if link already exists in README
-              if ! grep -q "\[${filename}\]" md/README.md; then
-                # Get current date
-                DATE=$(date '+%Y-%m-%d %H:%M:%S')
-                
-                # Append link to README
-                echo "- [${filename}](${filename}.md) - added ${DATE}" >> md/README.md
-                
-                echo "Added ${filename} to md/README.md"
+              # Get current date (New York timezone)
+              DATE=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S')
+              
+              # Create new entry
+              NEW_ENTRY="- [${filename}](${filename}.md) - added ${DATE}"
+              
+              # Check if filename already exists in ALRM.md
+              if grep -q "(${filename}.md)" md/ALRM.md; then
+                # Replace existing entry: remove old entry and add new one
+                grep -v "(${filename}.md)" md/ALRM.md > md/ALRM.md.tmp
+                mv md/ALRM.md.tmp md/ALRM.md
+                echo "${NEW_ENTRY}" >> md/ALRM.md
+                echo "Updated ${filename} in md/ALRM.md"
+              else
+                # Add new entry
+                echo "${NEW_ENTRY}" >> md/ALRM.md
+                echo "Added ${filename} to md/ALRM.md"
               fi
             fi
           done < new_alarm_files.txt

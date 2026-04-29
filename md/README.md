@@ -3,9 +3,6 @@
 
 See links below for roast reports
 
-<<<<<<< HEAD
-=======
->>>>>>> 1bd3cfe34a08e0a07b342def7d360e96149276fd
 
 ## Alarm Reports
 
