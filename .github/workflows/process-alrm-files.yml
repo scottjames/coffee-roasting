@@ -71,8 +71,8 @@ jobs:
               filename=$(basename "$alrm_file" .alrm)
               
               # Run parse-alarm and redirect output to markdown file
-              ./venv/bin/python parse-alarm/parse-alarm.py "$alrm_file" --format markdown > "alarms/${filename}.md"
-              
+              ./venv/bin/python parse-alarm/alrm_parser.py "$alrm_file" --format md > "alarms/${filename}.md"
+
               echo "Created alarms/${filename}.md"
             else
               echo "Warning: File not found: $alrm_file"
