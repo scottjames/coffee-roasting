@@ -54,7 +54,7 @@ jobs:
           else
             echo "New log files detected:"
             echo "$NEW_FILES"
-            echo "$NEW_FILES" > new_log_files.txt
+            echo "$NEW_FILES" | sort > new_log_files.txt
             echo "has_new_alog_files=true" >> $GITHUB_OUTPUT
           fi
 
