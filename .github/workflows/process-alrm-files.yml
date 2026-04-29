@@ -62,8 +62,6 @@ jobs:
         run: |
           set -e
           
-          mkdir -p md
-          
           # Process each new alarm file
           while IFS= read -r alrm_file; do
             if [ -f "$alrm_file" ]; then
@@ -73,9 +71,9 @@ jobs:
               filename=$(basename "$alrm_file" .alrm)
               
               # Run parse-alarm and redirect output to markdown file
-              ./venv/bin/python parse-alarm/parse-alarm.py "$alrm_file" --format markdown > "md/${filename}.md"
+              ./venv/bin/python parse-alarm/parse-alarm.py "$alrm_file" --format markdown > "alarms/${filename}.md"
               
-              echo "Created md/${filename}.md"
+              echo "Created alarms/${filename}.md"
             else
               echo "Warning: File not found: $alrm_file"
             fi
@@ -107,12 +105,12 @@ jobs:
               DATE=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S')
               
               # Create new entry
-              NEW_ENTRY="- [${filename}](../md/${filename}.md) - added ${DATE}"
+              NEW_ENTRY="- [${filename}](${filename}.md) - added ${DATE}"
               
               # Check if filename already exists in alarms/README.md
-              if grep -q "(../md/${filename}.md)" alarms/README.md; then
+              if grep -q "(${filename}.md)" alarms/README.md; then
                 # Replace existing entry: remove old entry and add new one
-                grep -v "(../md/${filename}.md)" alarms/README.md > alarms/README.md.tmp
+                grep -v "(${filename}.md)" alarms/README.md > alarms/README.md.tmp
                 mv alarms/README.md.tmp alarms/README.md
                 echo "${NEW_ENTRY}" >> alarms/README.md
                 echo "Updated ${filename} in alarms/README.md"
@@ -132,7 +130,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           
-          git add md/
+          git add alarms/
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
