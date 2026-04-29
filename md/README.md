@@ -3,25 +3,6 @@
 
 See links below for roast reports
 
-
-## Alarm Reports
-
-- [trigger-alarms-18-250g](trigger-alarms-18-250g.md) - added 2026-04-25 21:58:39
-
-end of list
-- [**R5(1)** - RST_25-08-26_2122](RST_25-08-26_2122.md) - [image](/coffee-roasting/logs/img/RST_25-08-26_2122.png) - added 2026-04-29 01:49:07
-- [**R6(2)** - RST_25-08-26_2139](RST_25-08-26_2139.md) - [image](/coffee-roasting/logs/img/RST_25-08-26_2139.png) - added 2026-04-29 01:49:07
-- [**R7(3)** - RST_25-08-26_2150](RST_25-08-26_2150.md) - [image](/coffee-roasting/logs/img/RST_25-08-26_2150.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25-08-26_2204](RST_25-08-26_2204.md) - [image](/coffee-roasting/logs/img/RST_25-08-26_2204.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25-08-26_2208](RST_25-08-26_2208.md) - [image](/coffee-roasting/logs/img/RST_25-08-26_2208.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25-08-31_1529](RST_25-08-31_1529.md) - [image](/coffee-roasting/logs/img/RST_25-08-31_1529.png) - added 2026-04-29 01:49:07
-- [**R43(1)** - RST_25-09-10_0750](RST_25-09-10_0750.md) - [image](/coffee-roasting/logs/img/RST_25-09-10_0750.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25-09-10_0752](RST_25-09-10_0752.md) - [image](/coffee-roasting/logs/img/RST_25-09-10_0752.png) - added 2026-04-29 01:49:07
-- [**R44(2)** - RST_25-09-10_0759](RST_25-09-10_0759.md) - [image](/coffee-roasting/logs/img/RST_25-09-10_0759.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25X-09-10_0740](RST_25X-09-10_0740.md) - [image](/coffee-roasting/logs/img/RST_25X-09-10_0740.png) - added 2026-04-29 01:49:07
-- [**R0(1)** - RST_25XX-09-10_0736](RST_25XX-09-10_0736.md) - [image](/coffee-roasting/logs/img/RST_25XX-09-10_0736.png) - added 2026-04-29 01:49:07
-- [**rst1(1)** - dupe-coffee_25-08-17_1612](dupe-coffee_25-08-17_1612.md) - [image](/coffee-roasting/logs/img/dupe-coffee_25-08-17_1612.png) - added 2026-04-29 01:49:07
-- [**0(1)** - sim-25-08-21_0812](sim-25-08-21_0812.md) - [image](/coffee-roasting/logs/img/sim-25-08-21_0812.png) - added 2026-04-29 01:49:11
 - [**rst1(1)** - roast_25-08-17_1612](roast_25-08-17_1612.md) - [image](/coffee-roasting/logs/img/roast_25-08-17_1612.png) - added 2026-04-28 22:02:50
 - [**rst0(1)** - roast_25-08-22_2304](roast_25-08-22_2304.md) - [image](/coffee-roasting/logs/img/roast_25-08-22_2304.png) - added 2026-04-28 22:02:50
 - [**RST6(1)** - roast_25-08-30_1650](roast_25-08-30_1650.md) - [image](/coffee-roasting/logs/img/roast_25-08-30_1650.png) - added 2026-04-28 22:02:51
