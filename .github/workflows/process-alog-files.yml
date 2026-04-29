@@ -105,8 +105,8 @@ jobs:
             if [ -f "$log_file" ]; then
               filename=$(basename "$log_file" .alog)
               
-              # Get current date
-              DATE=$(date '+%Y-%m-%d %H:%M:%S')
+              # Get current date (New York timezone)
+              DATE=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S')
               
               # Extract roast batch info from log file
               BATCH=$(./venv/bin/python artisanc/artisanc_cli.py --metrics -o json "$log_file" 2>/dev/null | jq -r '.roastbatch // "Unknown"' || echo "Unknown")
