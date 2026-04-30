@@ -20,6 +20,6 @@
 - [trigger-alarms-150g](trigger-alarms-150g.md) - added 2026-04-28 23:05:02
 - [trigger-alarms-16-ld-250g](trigger-alarms-16-ld-250g.md) - added 2026-04-28 23:05:02
 - [trigger-alarms-17-250g](trigger-alarms-17-250g.md) - added 2026-04-28 23:05:02
-- [trigger-alarms-18-250g](trigger-alarms-18-250g.md) - added 2026-04-28 23:05:02
 - [trigger-alarms-brazil-200g-1](trigger-alarms-brazil-200g-1.md) - added 2026-04-28 23:05:02
 - [trigger-alarms-brazil-200g](trigger-alarms-brazil-200g.md) - added 2026-04-28 23:05:02
+- [trigger-alarms-18-250g](trigger-alarms-18-250g.md) - added 2026-04-30 08:25:33
