@@ -71,9 +71,9 @@ jobs:
               filename=$(basename "$alrm_file" .alrm)
               
               # Run parse-alarm and redirect output to markdown file
-              ./venv/bin/python parse-alarm/alrm_parser.py "$alrm_file" --format md > "alarms/${filename}.md"
+              ./venv/bin/python parse-alarm/alrm_parser.py "$alrm_file" --format md > "alarms/md/${filename}.md"
 
-              echo "Created alarms/${filename}.md"
+              echo "Created alarms/md/${filename}.md"
             else
               echo "Warning: File not found: $alrm_file"
             fi
@@ -89,7 +89,7 @@ jobs:
             cat > alarms/README.md <<'EOF'
           # Alarm Configuration Reports
 
-          This directory contains alarm configuration files and their automatically generated analysis reports.
+          This directory contains alarm configuration files and md/ has automatically generated analysis reports.
 
           ## Alarm Reports
 
@@ -105,12 +105,12 @@ jobs:
               DATE=$(TZ=America/New_York date '+%Y-%m-%d %H:%M:%S')
               
               # Create new entry
-              NEW_ENTRY="- [${filename}](${filename}.md) - added ${DATE}"
+              NEW_ENTRY="- [${filename}](md/${filename}.md) - added ${DATE}"
               
               # Check if filename already exists in alarms/README.md
-              if grep -q "(${filename}.md)" alarms/README.md; then
+              if grep -q "(md/${filename}.md)" alarms/README.md; then
                 # Replace existing entry: remove old entry and add new one
-                grep -v "(${filename}.md)" alarms/README.md > alarms/README.md.tmp
+                grep -v "(md/${filename}.md)" alarms/README.md > alarms/README.md.tmp
                 mv alarms/README.md.tmp alarms/README.md
                 echo "${NEW_ENTRY}" >> alarms/README.md
                 echo "Updated ${filename} in alarms/README.md"
