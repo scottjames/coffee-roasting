@@ -71,22 +71,22 @@ jobs:
               filename=$(basename "$alrm_file" .alrm)
               
               # Run parse-alarm and redirect output to markdown file
-              ./venv/bin/python parse-alarm/alrm_parser.py "$alrm_file" --format md > "alarms/md/${filename}.md"
+              ./venv/bin/python parse-alarm/alrm_parser.py "$alrm_file" --format md > "md/${filename}.md"
 
-              echo "Created alarms/md/${filename}.md"
+              echo "Created md/${filename}.md"
             else
               echo "Warning: File not found: $alrm_file"
             fi
           done < new_alarm_files.txt
 
-      - name: Update README.md
+      - name: Update ALRM.md
         if: steps.detect.outputs.has_new_alrm_files == 'true'
         run: |
           set -e
           
-          # Initialize alarms/README.md if it doesn't exist
-          if [ ! -f alarms/README.md ]; then
-            cat > alarms/README.md <<'EOF'
+          # Initialize md/ALRM.md if it doesn't exist
+          if [ ! -f md/ALRM.md ]; then
+            cat > md/ALRM.md <<'EOF'
           # Alarm Configuration Reports
 
           This directory contains alarm configuration files and md/ has automatically generated analysis reports.
@@ -107,17 +107,17 @@ jobs:
               # Create new entry
               NEW_ENTRY="- [${filename}](md/${filename}.md) - added ${DATE}"
               
-              # Check if filename already exists in alarms/README.md
-              if grep -q "(md/${filename}.md)" alarms/README.md; then
+              # Check if filename already exists in md/ALRM.md
+              if grep -q "(md/${filename}.md)" md/ALRM.md; then
                 # Replace existing entry: remove old entry and add new one
-                grep -v "(md/${filename}.md)" alarms/README.md > alarms/README.md.tmp
-                mv alarms/README.md.tmp alarms/README.md
-                echo "${NEW_ENTRY}" >> alarms/README.md
-                echo "Updated ${filename} in alarms/README.md"
+                grep -v "(md/${filename}.md)" md/ALRM.md > md/ALRM.md.tmp
+                mv md/ALRM.md.tmp md/ALRM.md
+                echo "${NEW_ENTRY}" >> md/ALRM.md
+                echo "Updated ${filename} in md/ALRM.md"
               else
                 # Add new entry
-                echo "${NEW_ENTRY}" >> alarms/README.md
-                echo "Added ${filename} to alarms/README.md"
+                echo "${NEW_ENTRY}" >> md/ALRM.md
+                echo "Added ${filename} to md/ALRM.md"
               fi
             fi
           done < new_alarm_files.txt
@@ -131,6 +131,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           git add alarms/
+          git add md/
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
