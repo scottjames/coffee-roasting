@@ -75,4 +75,4 @@ See links below for roast reports
 - [**rst4(1)** - roast_b4_25-09-06_1638](roast_b4_25-09-06_1638.md) - [image](/coffee-roasting/logs/img/roast_b4_25-09-06_1638.png) - added 2026-04-30 09:20:13
 - [**rst2(1)** - roast_g3_25-08-31_1240](roast_g3_25-08-31_1240.md) - [image](/coffee-roasting/logs/img/roast_g3_25-08-31_1240.png) - added 2026-04-30 09:20:13
 - [**rst3(1)** - roast_g4_25-09-06_1420](roast_g4_25-09-06_1420.md) - [image](/coffee-roasting/logs/img/roast_g4_25-09-06_1420.png) - added 2026-04-30 09:20:13
-- [**R56(2)** - roast_26-04-25_1251_R56_sumatra_25](roast_26-04-25_1251_R56_sumatra_25.md) - [image](/coffee-roasting/logs/img/roast_26-04-25_1251_R56_sumatra_25.png) - added 2026-05-03 08:55:07
+- [**R56(2)** - roast_26-04-25_1251_R56_sumatra_25](roast_26-04-25_1251_R56_sumatra_25.md) - [image](/coffee-roasting/logs/img/roast_26-04-25_1251_R56_sumatra_25.png) - added 2026-05-05 07:51:59
