@@ -43,8 +43,8 @@ jobs:
             # If manually triggered, process all log files
             NEW_FILES=$(find logs/ -type f -name "roast*.alog" 2>/dev/null | sort || echo "")
           else
-            # Get files changed in the last commit
-            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
+            # Get files changed in the last couple commits
+            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~2 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
           fi
           
           # Only run if there are new *.alog files
@@ -115,17 +115,14 @@ jobs:
               LABEL="**${BATCH}** - ${filename}"
               
               # Create new entry
-              NEW_ENTRY="- [${LABEL}](${filename}.md) - [image](/coffee-roasting/logs/img/${filename}.png) - added ${DATE}"
+              NEW_ENTRY="- [${LABEL}](${filename}.md) - [image](/coffee-roasting/logs/img/${filename}.png)"
               
               # Check if filename already exists in README
               if grep -q "(${filename}.md)" md/README.md; then
-                # Replace existing entry: remove old entry and add new one
-                grep -v "(${filename}.md)" md/README.md > md/README.md.tmp
-                mv md/README.md.tmp md/README.md
-                echo "${NEW_ENTRY}" >> md/README.md
-                echo "Updated ${filename} in README.md"
+                # Leave old entry
+                echo "${filename} is already in README.md"
               else
-                # Add new entry
+                # Add new entry to end of README
                 echo "${NEW_ENTRY}" >> md/README.md
                 echo "Added ${filename} to README.md"
               fi
