@@ -43,8 +43,8 @@ jobs:
             # If manually triggered, process all log files
             NEW_FILES=$(find logs/ -type f -name "roast*.alog" 2>/dev/null | sort || echo "")
           else
-            # Get files changed in the last couple commits
-            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~2 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
+            # Get files changed in the last commit
+            NEW_FILES=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD | grep '^logs/.*\.alog$' | sort || echo "")
           fi
           
           # Only run if there are new *.alog files
