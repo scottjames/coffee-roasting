@@ -9,15 +9,15 @@
 | 5 | ✓ | CHARGE | 00:25 | — | — | Time | above | — | Set Fan | ✓ | 60 # convection |
 | 6 | ✓ | TP | 00:30 | — | — | Time | above | — | Set Burner | ✓ | 75 |
 | 7 | ✓ | TP | 01:15 | — | — | Time | above | — | Set Burner | ✓ | 70 |
-| 8 | ✓ | TP | 02:15 | — | — | Time | above | — | Set Burner | ✓ | 65 |
-| 9 | ✓ | TP | 02:45 | — | — | Time | above | — | Set Fan | ✓ | 70 |
-| 10 | ✓ | TP | 03:00 | — | — | Time | above | — | Set Burner | ✓ | 65 |
-| 11 | ✓ | TP | 04:00 | — | — | Time | above | — | Set Fan | ✓ | 80 |
-| 12 | ✓ | DRY END | 00:30 | — | — | Time | above | — | Set Burner | ✓ | 65 |
-| 13 | ✓ | DRY END | 01:00 | — | — | Time | above | — | Set Burner | ✓ | 60 # at BT 170 |
+| 8 | ✓ | TP | 02:00 | — | — | Time | above | — | Set Burner | ✓ | 65 |
+| 9 | ✓ | TP | 02:30 | — | — | Time | above | — | Set Fan | ✓ | 70 |
+| 10 | ✗ | TP | 03:00 | — | — | Time | above | — | Set Burner | ✓ | 65 # no |
+| 11 | ✗ | TP | 04:00 | — | — | Time | above | — | Set Fan | ✓ | 80 # no |
+| 12 | ✗ | DRY END | 00:45 | — | — | Time | above | — | Set Burner | ✓ | 65 # no |
+| 13 | ✓ | DRY END | 01:30 | — | — | Time | above | — | Set Burner | ✓ | 60 # at BT 170 |
 | 14 | ✓ | DRY END | 02:30 | — | — | Time | above | — | Set Burner | ✓ | 55 |
-| 15 | ✓ | FC START | 01:00 | — | — | Time | above | — | Set Burner | ✓ | 50  # dont stall FC |
-| 16 | ✓ | FC START | 01:15 | — | — | Time | above | — | Pop-up message | ✓ | Drop around 10:30, by 188+ |
+| 15 | ✓ | FC START | 01:30 | — | — | Time | above | — | Set Burner | ✓ | 50  # dont stall FC |
+| 16 | ✓ | FC START | 01:15 | — | — | Time | above | — | Pop-up message | ✓ | Drop around 10:30, by 190+ |
 | 17 | ✓ | FC END | 00:15 | — | — | Time | above | — | Set Burner | ✓ | 45 # late devel |
 | 18 | ✓ | DROP | 00:01 | — | — | Time | above | — | Set Burner | ✓ | 0 |
 | 19 | ✓ | DROP | 00:10 | — | — | Time | above | — | Set Fan | ✓ | 100 |

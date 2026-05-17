@@ -47,4 +47,4 @@ This directory contains automatically generated analysis reports from alarm conf
 - [alarms-18-250g](md/alarms-18-250g.md) - added 2026-05-01 09:25:17
 - [alarms-brazil-200g-1](md/alarms-brazil-200g-1.md) - added 2026-05-01 09:25:17
 - [alarms-brazil-200g](md/alarms-brazil-200g.md) - added 2026-05-01 09:25:17
-- [alarms-20-250g](md/alarms-20-250g.md) - added 2026-05-13 09:45:01
+- [alarms-20-250g](md/alarms-20-250g.md) - added 2026-05-17 10:17:28
