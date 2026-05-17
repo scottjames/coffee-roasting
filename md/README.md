@@ -77,3 +77,4 @@ See links below for roast reports
 - [**R54(2)** - roast_26-04-19_1218](roast_26-04-19_1218.md) - [image](/coffee-roasting/logs/img/roast_26-04-19_1218.png)
 - [**R57(1)** - roast_26-05-10_1422_R57_brazil_250](roast_26-05-10_1422_R57_brazil_250.md) - [image](/coffee-roasting/logs/img/roast_26-05-10_1422_R57_brazil_250.png)
 - [**R58(2)** - roast_26-05-10_1438_R58_brazil_250](roast_26-05-10_1438_R58_brazil_250.md) - [image](/coffee-roasting/logs/img/roast_26-05-10_1438_R58_brazil_250.png)
+- [**R59(1)** - roast_26-05-17_1235_R59_brazil_250](roast_26-05-17_1235_R59_brazil_250.md) - [image](/coffee-roasting/logs/img/roast_26-05-17_1235_R59_brazil_250.png)
