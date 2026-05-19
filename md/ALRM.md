@@ -49,3 +49,4 @@ This directory contains automatically generated analysis reports from alarm conf
 - [alarms-brazil-200g](md/alarms-brazil-200g.md) - added 2026-05-01 09:25:17
 - [alarms-20-250g](md/alarms-20-250g.md) - added 2026-05-17 10:17:28
 - [alarms-21-250g](md/alarms-21-250g.md) - added 2026-05-17 17:08:15
+- [alarms-22-250g](md/alarms-22-250g.md) - added 2026-05-19 09:29:37
