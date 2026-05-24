@@ -2,7 +2,15 @@
 import json
 import argparse
 import os
+import logging
 import svgwrite
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 def parse_time(time_str):
     """Parses MM:SS string or a float number into seconds."""
@@ -18,35 +26,34 @@ def format_time_mm_ss(seconds):
     return f"{minutes}:{secs:02d}"
 
 def parse_alarms(file_path, base_times):
-    """Parses the .alrm JSON data into ordered burner and air events."""
+    """Parses the .alrm JSON data into ordered burner and air events"""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Alarm file not found: {file_path}")
 
     with open(file_path, 'r') as f:
         data = json.load(f)
 
-    # Reconstruct the list of events from parallel arrays
     events = []
-    num_alarms = len(data.get("alarmflags", []))
+    num_alarms = len(data.get("alarmflags", [])) # [cite: 1]
     
     for i in range(num_alarms):
-        # Extract metadata
-        action = data["alarmactions"][i]
-        source = data["alarmsources"][i]
-        cond = data["alarmconds"][i]
-        offset = data["alarmoffsets"][i]
-        raw_string = data["alarmstrings"][i]
+        action = data["alarmactions"][i] # [cite: 1]
+        # source = data["alarmsources"][i] # [cite: 1]
+        cond = data["alarmconds"][i] # [cite: 1]
+        offset = data["alarmoffsets"][i] # [cite: 1]
+        raw_string = data["alarmstrings"][i] # [cite: 1]
         
-        # Determine Event Type: Burner vs Air
-        # Artisan actions: 3 & 6 change settings. Sources define target.
-        # Typically Source -3 indicates Heater/Burner or Air depending on setup, 
-        # but let's parse from string flags ('#' for Burner vs 'A' for Fan/Air) 
-        # or defaults matching the provided graph style.
-        is_air = 'A' in raw_string and ('#' not in raw_string.split('A')[0])
-        event_type = 'air' if is_air else 'burner'
+        # Check if the event is an airflow modification
+        if action == 3:
+            event_type = 'air'
+        elif action == 6:
+            event_type = 'burner'
+        else:
+            event_type = 'unk'
+        # is_air = 'A' in action and ('#' not in raw_string.split('A')[0])
+        # event_type = 'air' if is_air else 'burner'
         
-        # Extract target numeric value from the description string
-        # e.g., "30 # soak" -> value 30; "A60" or "60 #" -> value 60
+        # Extract target numeric value from description string
         clean_str = raw_string.replace('#', '').strip()
         tokens = clean_str.split()
         val_token = tokens[0] if tokens else "0"
@@ -56,20 +63,14 @@ def parse_alarms(file_path, base_times):
         try:
             value = float(val_token)
         except ValueError:
-            continue # Skip non-setting/informational alarms if they don't map to 0-100 values
+            continue 
 
-        # Isolate the user comment
         comment = " ".join(tokens[1:]) if len(tokens) > 1 else ""
-
-        # Calculate time based on condition rules (cond mapping to event triggers)
-        # 1: absolute time/temp, 2: offset from an event index
-        ref_event = data["alarmtimes"][i]
+        ref_event = data["alarmtimes"][i] # [cite: 1]
         trigger_label = ""
         event_time = 0.0
 
-        if cond == 2:
-            # Map event reference indexes to anchor names
-            # Artisan mappings: 0=CHARGE, 1=TP, 2=DE, 6=FCs, 7=FCe, 8=DROP, etc.
+        if cond == 2: # [cite: 1]
             ref_map = {0: 'CHARGE', 1: 'TP', 2: 'DE', 6: 'FCs', 7: 'FCe', 8: 'DROP'}
             ref_name = ref_map.get(ref_event, f"REF_{ref_event}")
             
@@ -79,30 +80,27 @@ def parse_alarms(file_path, base_times):
             offset_sign = "+" if offset >= 0 else ""
             trigger_label = f"{ref_name}{offset_sign}{format_time_mm_ss(offset)}"
         else:
-            # Absolute condition
-            if data["alarmtemperatures"][i] > 0:
-                event_time = base_times.get('CHARGE', 0.0) # Absolute placement placeholder
-                trigger_label = f"{data['alarmtemperatures'][i]}°C"
+            if data["alarmtemperatures"][i] > 0: # [cite: 1]
+                event_time = base_times.get('CHARGE', 0.0)
+                trigger_label = f"{data['alarmtemperatures'][i]}°C" # [cite: 1]
             else:
                 event_time = float(offset)
                 trigger_label = format_time_mm_ss(offset)
 
         events.append({
-            'type': event_type,
             'time': event_time,
+            'type': event_type,
             'value': value,
             'trigger': trigger_label,
             'comment': comment
         })
 
-    # Sort sequentially by timeline execution
     events.sort(key=lambda x: x['time'])
     return events
 
 
-def create_artisan_svg(events, filename, title_name, max_time=720):
+def create_artisan_svg(events, filename, title_name, base_times, max_time=720):
     """Generates an Artisan-styled landscape US Letter SVG graph."""
-    # US Letter Landscape dimensions in points/pixels (11in x 8.5in at 96 DPI)
     width, height = 1056, 816
     dwg = svgwrite.Drawing(filename, size=(f"{width}px", f"{height}px"), profile='full')
 
@@ -115,82 +113,120 @@ def create_artisan_svg(events, filename, title_name, max_time=720):
     graph_w = width - pad_left - pad_right
     graph_h = height - pad_top - pad_bottom
 
-    # Define scales
     def get_x(t): return pad_left + (t / max_time) * graph_w
     def get_y(v): return pad_top + graph_h - (v / 100.0) * graph_h
 
-    # Draw grid background lines (Y-axis 0 to 100 steps of 25)
-    for y_val in [0, 25, 50, 75, 100]:
+    # Draw grid background lines (Y-axis 0 to 100 steps of 10)
+    for y_val in [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]:
         y_pos = get_y(y_val)
-        dwg.add(dwg.line((pad_left, y_pos), (width - pad_right, y_pos), stroke='#e9ecef', stroke_width=1))
-        dwg.add(dwg.text(f"{y_val}", insert=(pad_left - 15, y_pos + 5), text_anchor="end", font_size="14px", font_family="sans-serif", fill="#6c757d"))
+        # use dotted gride lines to reduce visual clutter
+        dwg.add(dwg.line((pad_left, y_pos), (width - pad_right, y_pos),
+                         stroke="#777777", stroke_width=1, stroke_dasharray="4,4"))
+        dwg.add(dwg.text(f"{y_val}", insert=(pad_left - 15, y_pos + 5),
+                          text_anchor="end", font_size="14px", font_family="sans-serif", fill="#6c757d"))
 
-    # Draw Timeline X Axis intervals (every 2 minutes up to max time)
-    for t_sec in range(0, int(max_time) + 1, 120):
+    # Draw Timeline X Axis intervals (every 1 minutes)
+    for t_sec in range(0, int(max_time) + 1, 60):
         x_pos = get_x(t_sec)
-        dwg.add(dwg.line((x_pos, pad_top), (x_pos, pad_top + graph_h), stroke='#e9ecef', stroke_width=1))
-        dwg.add(dwg.text(format_time_mm_ss(t_sec), insert=(x_pos, pad_top + graph_h + 25), text_anchor="middle", font_size="14px", font_family="sans-serif", fill="#6c757d"))
+        dwg.add(dwg.line((x_pos, pad_top), (x_pos, pad_top + graph_h),
+                         stroke="#777777", stroke_width=1, stroke_dasharray="4,4"))
+        dwg.add(dwg.text(format_time_mm_ss(t_sec), insert=(x_pos, pad_top + graph_h + 25),
+                         text_anchor="middle", font_size="14px", font_family="sans-serif", fill="#6c757d"))
+
+    # Draw vertical blue dotted line markers for major roast phases
+    milestones = ['TP', 'DE', 'FCs', 'FCe', 'DROP']
+    for milestone in milestones:
+        m_time = base_times.get(milestone, None)
+        if m_time is not None and m_time > 0:
+            mx = get_x(m_time)
+            # Vertical dotted indicator line
+            dwg.add(dwg.line((mx, pad_top), (mx, pad_top + graph_h),
+                             stroke='#007bff', stroke_width=2.5, stroke_dasharray='4,4'))
+            # Milestone top anchor text label
+            dwg.add(dwg.text(milestone, insert=(mx, pad_top - 15),
+                             text_anchor='middle', font_size='12px', font_family='sans-serif',
+                             font_weight='bold', fill='#007bff'))
 
     # Graph Title
-    dwg.add(dwg.text(f"Artisan Profile Alarms: {title_name}", insert=(pad_left, 50), font_size="24px", font_family="sans-serif", font_weight="bold", fill="#1a252f"))
+    dwg.add(dwg.text(f"Artisan Profile Alarms: {title_name}",
+                      insert=(pad_left, 50), font_size="24px",
+                      font_family="sans-serif", font_weight="bold", fill="#1a252f"))
 
     # Separate events by actor
     burner_events = [e for e in events if e['type'] == 'burner']
     air_events = [e for e in events if e['type'] == 'air']
 
-    def draw_sequence(seq_events, color_hex, text_color="#ffffff"):
+    def draw_sequence(seq_events, color_hex, text_color="#ffffff", show_comments=True):
         """Draws connecting step-lines, control setting block nodes, and data callout tags."""
         for i, ev in enumerate(seq_events):
             cx, cy = get_x(ev['time']), get_y(ev['value'])
 
-            # Continuity Step Line Connection
+            # draw step lines from previous event to current event
             if i > 0:
                 prev_ev = seq_events[i-1]
                 px, py = get_x(prev_ev['time']), get_y(prev_ev['value'])
-                # Artisan draws square horizontal/vertical step progressions
                 dwg.add(dwg.line((px, py), (cx, py), stroke=color_hex, stroke_width=2))
                 dwg.add(dwg.line((cx, py), (cx, cy), stroke=color_hex, stroke_width=2))
             elif cx > pad_left:
-                # Extend line backwards to tracking start point
-                dwg.add(dwg.line((pad_left, cy), (cx, cy), stroke=color_hex, stroke_width=2, stroke_dasharray="4,4"))
+                dwg.add(dwg.line((pad_left, cy), (cx, cy),
+                                 stroke=color_hex, stroke_width=2, stroke_dasharray="4,4"))
 
-            # Draw outer continuity path to grid edge for the final setting state
             if i == len(seq_events) - 1:
-                dwg.add(dwg.line((cx, cy), (width - pad_right, cy), stroke=color_hex, stroke_width=2))
+                dwg.add(dwg.line((cx, cy), (width - pad_right, cy),
+                                 stroke=color_hex, stroke_width=2))
 
-            # Event Node Rectangle representation (Artisan Badge style)
-            box_w, box_h = 36, 22
-            dwg.add(dwg.rect(insert=(cx - box_w/2, cy - box_h/2), size=(box_w, box_h), fill=color_hex, rx=3, ry=3))
+            # Event Node Badge
+            box_w, box_h = 42, 22
+            dwg.add(dwg.rect(insert=(cx - box_w/2, cy - box_h/2), size=(box_w, box_h),
+                             fill=color_hex, rx=3, ry=3, opacity=1))
             
-            # Formatted value output inside block
-            disp_val = f"A{int(ev['value'])}" if ev['type'] == 'air' else f"B{int(ev['value'])}"
-            dwg.add(dwg.text(disp_val, insert=(cx, cy + 5), text_anchor="middle", font_size="11px", font_family="sans-serif", font_weight="bold", fill=text_color))
+            # Label generation: render as "A##" or "B" inside boxes
+            if ev['type'] == 'air':
+                disp_val = f"A{int(ev['value'])}"
+                comment_y_offset = 36
+            elif ev['type'] == 'burner':
+                disp_val = f"B{int(ev['value'])}"
+                comment_y_offset = -12
+            else:
+                disp_val = "X"
+            # disp_val = f"A{int(ev['value'])}" if ev['type'] == 'air' else f"B{int(ev['value'])}"
+            dwg.add(dwg.text(disp_val, insert=(cx, cy + 5), text_anchor="middle",
+                             font_size="11px", font_family="sans-serif",
+                             font_weight="bold", fill=text_color, opacity=1))
 
-            # Trigger Label Comment Bubble Oval
-            bubble_w, bubble_h = 90, 36
-            bx = cx + 20
-            by = cy - bubble_h - 12
-            
-            # Anchor dynamic bounding limit corrections
-            if bx + bubble_w > width - pad_right:
-                bx = cx - bubble_w - 20
-            
-            dwg.add(dwg.rect(insert=(bx, by), size=(bubble_w, bubble_h), fill="#212529", rx=6, ry=6, opacity=0.85))
-            
-            # Primary Event Offset String Line
-            dwg.add(dwg.text(ev['trigger'], insert=(bx + bubble_w/2, by + 15), text_anchor="middle", font_size="11px", font_family="sans-serif", font_weight="bold", fill="#ffffff"))
-            
-            # Secondary Optional Comments Metadata String Line
-            if ev['comment']:
-                truncated_comment = ev['comment'][:13] + '..' if len(ev['comment']) > 14 else ev['comment']
-                dwg.add(dwg.text(truncated_comment, insert=(bx + bubble_w/2, by + 28), text_anchor="middle", font_size="9px", font_family="sans-serif", fill="#f8f9fa"))
+            if show_comments:
+                # Trigger Label Comment Bubble Oval
+                bubble_w, bubble_h = 90, 36
+                bx = cx + 24
+                by = cy - bubble_h + comment_y_offset
+                
+                if bx + bubble_w > width - pad_right:
+                    bx = cx - bubble_w - 24
+                
+                dwg.add(dwg.rect(insert=(bx, by), size=(bubble_w, bubble_h), fill="#212529",
+                                rx=6, ry=6, opacity=1))
+                dwg.add(dwg.text(ev['trigger'], insert=(bx + bubble_w/2, by + 15),
+                                text_anchor="middle", font_size="11px", font_family="sans-serif",
+                                font_weight="bold", fill="#ffffff", opacity=1))
+                
+                if ev['comment']:
+                    truncated_comment = ev['comment'][:13] + '..' if len(ev['comment']) > 14 else ev['comment']
+                    dwg.add(dwg.text(truncated_comment, insert=(bx + bubble_w/2, by + 28),
+                                text_anchor="middle", font_size="9px", font_family="sans-serif",
+                                fill="#f8f9fa"))
 
-    # Execute graphic render matrices for Burner (Crimson Red) and Airflow (Sky Blue) Channel paths
-    draw_sequence(burner_events, color_hex="#dc3545")
-    draw_sequence(air_events, color_hex="#17a2b8")
+    # Render configurations: Burner (Crimson Red) & Air (Sky Blue)
+    draw_sequence(burner_events, color_hex="#dc3545", show_comments=False)
+    draw_sequence(air_events, color_hex="#17a2b8", show_comments=False)
 
-    # Save SVG Document
     dwg.save()
+
+def dump_events(events):
+    """Utility function to print parsed events to console for debugging."""
+    print("Parsed Events:")
+    for ev in events:
+        print(f"  - Time: {format_time_mm_ss(ev['time'])}, Type: {ev['type']}, Value: {ev['value']}, Trigger: {ev['trigger']}, Comment: {ev['comment']}")   
+
 
 def main():
     parser = argparse.ArgumentParser(description="Convert Artisan .alrm files into custom SVG profile charts.")
@@ -204,7 +240,6 @@ def main():
 
     args = parser.parse_args()
 
-    # Normalize anchors to structural timeline offsets mapping back to the baseline model indices
     base_times = {
         'CHARGE': 0.0,
         'TP': parse_time(args.tp),
@@ -214,12 +249,12 @@ def main():
         'DROP': parse_time(args.drop)
     }
 
-    # Determine maximum bounding X-Axis timeline constraint dynamically 
-    max_timeline_limit = max(base_times.values()) + 120.0 
+    max_timeline_limit: int = int(max(base_times.values())) + 120
 
     try:
         events = parse_alarms(args.input_file, base_times)
-        create_artisan_svg(events, args.output_file, os.path.basename(args.input_file), max_time=max_timeline_limit)
+        dump_events(events)
+        create_artisan_svg(events, args.output_file, os.path.basename(args.input_file), base_times, max_time=max_timeline_limit)
         print(f"Success! Scalable Artisan template visualization exported to: '{args.output_file}'")
     except Exception as e:
         print(f"Error compiling alarm visualization: {e}")
