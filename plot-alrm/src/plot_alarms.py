@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from email import parser
 import json
 import argparse
 import os
@@ -7,7 +8,8 @@ import svgwrite
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    # level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
@@ -25,6 +27,24 @@ def format_time_mm_ss(seconds):
     secs = int(seconds) % 60
     return f"{minutes}:{secs:02d}"
 
+# alarmtimes: -1 = absolute time, else = phase index
+ALARM_TIME_PHASES = { 
+    -1: "CHARGE",   # "FROM_TIME" — absolute offset from start
+     0: "CHARGE",
+     1: "DE",
+     2: "FCs",
+     3: "FCe",
+     4: "SCs",
+     5: "SCe",
+     6: "DROP",
+     7: "COOL END",
+     8: "TP",  # Turning Point
+}
+
+def decode_phase(v: int) -> str:
+    return ALARM_TIME_PHASES.get(v, f"Phase({v})")
+
+
 def parse_alarms(file_path, base_times):
     """Parses the .alrm JSON data into ordered burner and air events"""
     if not os.path.exists(file_path):
@@ -38,10 +58,12 @@ def parse_alarms(file_path, base_times):
     
     for i in range(num_alarms):
         action = data["alarmactions"][i] # [cite: 1]
-        # source = data["alarmsources"][i] # [cite: 1]
+        source = data["alarmsources"][i] # [cite: 1]
+        flag = data["alarmflags"][i] # [cite: 1]
         cond = data["alarmconds"][i] # [cite: 1]
         offset = data["alarmoffsets"][i] # [cite: 1]
         raw_string = data["alarmstrings"][i] # [cite: 1]
+        phase = data["alarmtimes"][i] # [cite: 1]
         
         # Check if the event is an airflow modification
         if action == 3:
@@ -71,7 +93,8 @@ def parse_alarms(file_path, base_times):
         event_time = 0.0
 
         if cond == 2: # [cite: 1]
-            ref_map = {0: 'CHARGE', 1: 'TP', 2: 'DE', 6: 'FCs', 7: 'FCe', 8: 'DROP'}
+            # ORIG: ref_map = {0: 'CHARGE', 1: 'TP', 2: 'DE', 6: 'FCs', 7: 'FCe', 8: 'DROP'}
+            ref_map = {0: 'CHARGE', 1: 'DE', 2: 'FCs', 3: 'FCe', 4: 'SCs', 5: 'SCe', 6: 'DROP', 7: 'COOL END', 8: 'TP'}
             ref_name = ref_map.get(ref_event, f"REF_{ref_event}")
             
             anchor_time = base_times.get(ref_name, 0.0)
@@ -92,14 +115,17 @@ def parse_alarms(file_path, base_times):
             'type': event_type,
             'value': value,
             'trigger': trigger_label,
-            'comment': comment
+            'comment': comment,
+            'source': source,
+            'phase': phase,
+            'flag': flag
         })
 
     events.sort(key=lambda x: x['time'])
     return events
 
 
-def create_artisan_svg(events, filename, title_name, base_times, max_time=720):
+def create_artisan_svg(events, filename, title_name, base_times, max_time=720, show_comments=True):
     """Generates an Artisan-styled landscape US Letter SVG graph."""
     width, height = 1056, 816
     dwg = svgwrite.Drawing(filename, size=(f"{width}px", f"{height}px"), profile='full')
@@ -152,12 +178,13 @@ def create_artisan_svg(events, filename, title_name, base_times, max_time=720):
                       insert=(pad_left, 50), font_size="24px",
                       font_family="sans-serif", font_weight="bold", fill="#1a252f"))
 
-    # Separate events by actor
-    burner_events = [e for e in events if e['type'] == 'burner']
-    air_events = [e for e in events if e['type'] == 'air']
+    # Separate events by action and flag=on and source=-3 (timer-triggered)
+    burner_events = [e for e in events if e['type'] == 'burner' and e['flag'] == 1 and e['source'] == -3]
+    air_events = [e for e in events if e['type'] == 'air' and e['flag'] == 1 and e['source'] == -3]
 
     def draw_sequence(seq_events, color_hex, text_color="#ffffff", show_comments=True):
         """Draws connecting step-lines, control setting block nodes, and data callout tags."""
+        # First pass: draw all connecting lines
         for i, ev in enumerate(seq_events):
             cx, cy = get_x(ev['time']), get_y(ev['value'])
 
@@ -175,26 +202,31 @@ def create_artisan_svg(events, filename, title_name, base_times, max_time=720):
                 dwg.add(dwg.line((cx, cy), (width - pad_right, cy),
                                  stroke=color_hex, stroke_width=2))
 
+        # Second pass: draw all nodes and text on top
+        for i, ev in enumerate(seq_events):
+            cx, cy = get_x(ev['time']), get_y(ev['value'])
+
             # Event Node Badge
-            box_w, box_h = 42, 22
+            box_w, box_h = 36, 16
             dwg.add(dwg.rect(insert=(cx - box_w/2, cy - box_h/2), size=(box_w, box_h),
                              fill=color_hex, rx=3, ry=3, opacity=1))
-            
+            # logger.debug(f"Plotted event at time {format_time_mm_ss(ev['time'])} with value {ev['value']} as a box at ({cx}, {cy})")
+
             # Label generation: render as "A##" or "B" inside boxes
             if ev['type'] == 'air':
-                disp_val = f"A{int(ev['value'])}"
+                disp_val = f"{int(i)}A{int(ev['value'])}"
                 comment_y_offset = 36
             elif ev['type'] == 'burner':
-                disp_val = f"B{int(ev['value'])}"
+                disp_val = f"{int(i)}B{int(ev['value'])}"
                 comment_y_offset = -12
             else:
                 disp_val = "X"
-            # disp_val = f"A{int(ev['value'])}" if ev['type'] == 'air' else f"B{int(ev['value'])}"
             dwg.add(dwg.text(disp_val, insert=(cx, cy + 5), text_anchor="middle",
                              font_size="11px", font_family="sans-serif",
                              font_weight="bold", fill=text_color, opacity=1))
 
             if show_comments:
+                logger.debug(f"Adding comment bubble for event at {format_time_mm_ss(ev['time'])} with trigger '{ev['trigger']}' and comment '{ev['comment']}'")
                 # Trigger Label Comment Bubble Oval
                 bubble_w, bubble_h = 90, 36
                 bx = cx + 24
@@ -216,8 +248,8 @@ def create_artisan_svg(events, filename, title_name, base_times, max_time=720):
                                 fill="#f8f9fa"))
 
     # Render configurations: Burner (Crimson Red) & Air (Sky Blue)
-    draw_sequence(burner_events, color_hex="#dc3545", show_comments=False)
-    draw_sequence(air_events, color_hex="#17a2b8", show_comments=False)
+    draw_sequence(burner_events, color_hex="#dc3545", text_color="#ffffff", show_comments=show_comments)
+    draw_sequence(air_events, color_hex="#17a2b8", text_color="#ffffff", show_comments=show_comments)
 
     dwg.save()
 
@@ -225,8 +257,10 @@ def dump_events(events):
     """Utility function to print parsed events to console for debugging."""
     print("Parsed Events:")
     for ev in events:
-        print(f"  - Time: {format_time_mm_ss(ev['time'])}, Type: {ev['type']}, Value: {ev['value']}, Trigger: {ev['trigger']}, Comment: {ev['comment']}")   
-
+        print(f"  - Time: {format_time_mm_ss(ev['time'])}, Type: {ev['type']}, "
+              f"Value: {ev['value']}, Trigger: {ev['trigger']}, "
+              f"Comment: {ev['comment']}, Source: {ev['source']}, Flag: {ev['flag']}"
+              f", Phase: {decode_phase(ev['phase'])}")
 
 def main():
     parser = argparse.ArgumentParser(description="Convert Artisan .alrm files into custom SVG profile charts.")
@@ -237,6 +271,7 @@ def main():
     parser.add_argument('--fcs', default='8:30', help="First Crack Start milestone time (MM:SS or minutes float)")
     parser.add_argument('--fce', default='9:30', help="First Crack End milestone time (MM:SS or minutes float)")
     parser.add_argument('--drop', default='10:30', help="Drop phase milestone time (MM:SS or minutes float)")
+    parser.add_argument('--no-comments', action='store_false', dest='show_comments', default=True, help="Hide trigger labels and comments")
 
     args = parser.parse_args()
 
@@ -249,12 +284,14 @@ def main():
         'DROP': parse_time(args.drop)
     }
 
-    max_timeline_limit: int = int(max(base_times.values())) + 120
+    max_timeline_limit: int = int(max(base_times.values())) + 240
 
     try:
         events = parse_alarms(args.input_file, base_times)
         dump_events(events)
-        create_artisan_svg(events, args.output_file, os.path.basename(args.input_file), base_times, max_time=max_timeline_limit)
+        create_artisan_svg(events, args.output_file, os.path.basename(args.input_file),
+                            base_times, max_time=max_timeline_limit,
+                            show_comments=parser.parse_args().show_comments)
         print(f"Success! Scalable Artisan template visualization exported to: '{args.output_file}'")
     except Exception as e:
         print(f"Error compiling alarm visualization: {e}")
