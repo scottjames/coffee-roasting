@@ -81,5 +81,5 @@ See links below for roast reports
 - [**R60(2)** - roast_26-05-17_1252_R60_sumava_cos](roast_26-05-17_1252_R60_sumava_cos.md) - [image](/coffee-roasting/logs/img/roast_26-05-17_1252_R60_sumava_cos.png)
 - [**R61(1)** - roast_26-06-07_1157_R61_sumava](roast_26-06-07_1157_R61_sumava.md) - [image](/coffee-roasting/logs/img/roast_26-06-07_1157_R61_sumava.png)
 - [**R62(2)** - roast_26-06-07_1217_R62_brazil](roast_26-06-07_1217_R62_brazil.md) - [image](/coffee-roasting/logs/img/roast_26-06-07_1217_R62_brazil.png)
-- [**R64(2)** - roast_26-06-28_1300_R64_Kenya-Nyer](roast_26-06-28_1300_R64_Kenya-Nyer.md) - [image](/coffee-roasting/logs/img/roast_26-06-28_1300_R64_Kenya-Nyer.png)
 - [**R63(1)** - roast_26-06-28_R63_sumava_cos](roast_26-06-28_R63_sumava_cos.md) - [image](/coffee-roasting/logs/img/roast_26-06-28_R63_sumava_cos.png)
+- [**R64(2)** - roast_26-06-28_1300_R64_Kenya-Nyer](roast_26-06-28_1300_R64_Kenya-Nyer.md) - [image](/coffee-roasting/logs/img/roast_26-06-28_1300_R64_Kenya-Nyer.png)
