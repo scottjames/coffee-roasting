@@ -11,15 +11,16 @@
 | 7 | ✓ | TP | 02:00 | — | — | Time | above | — | Set Burner | ✓ | 70 |
 | 8 | ✓ | TP | 02:20 | — | — | Time | above | — | Set Fan | ✓ | 70 |
 | 9 | ✓ | TP | 02:40 | — | — | Time | above | — | Set Burner | ✓ | 65 |
-| 10 | ✗ | TP | 04:00 | — | — | Time | above | — | Set Fan | ✓ | 80 # no |
-| 11 | ✗ | DRY END | 00:10 | — | — | Time | above | — | Set Burner | ✓ | 65 # no |
-| 12 | ✓ | DRY END | 00:30 | — | — | Time | above | — | Set Burner | ✓ | 60 # at BT 170 |
-| 13 | ✓ | DRY END | 02:45 | — | — | Time | Cond(3) | — | Set Burner | ✓ | 55 # pre-FC |
-| 14 | ✓ | FC START | 00:45 | — | — | Time | above | — | Set Burner | ✓ | 50  # dont stall FC |
-| 15 | ✓ | FC START | 01:00 | — | — | Time | above | — | Pop-up message | ✓ | Drop around 1:30 devel by 194+ (avoid FLICK) |
-| 16 | ✓ | FC START | 01:10 | — | — | Time | above | — | Set Burner | ✓ | 45 # late devel avoid ashy |
-| 17 | ✓ | FC END | 00:05 | — | — | Time | above | — | Set Burner | ✓ | 40 # late devel avoid ashy |
-| 18 | ✓ | DROP | 00:01 | — | — | Time | above | — | Set Burner | ✓ | 0 |
-| 19 | ✓ | DROP | 00:10 | — | — | Time | above | — | Set Fan | ✓ | 100 |
-| 20 | ✓ | COOL END | 00:15 | — | — | Time | above | — | Set Burner | ✓ | 20 # BTB |
-| 21 | ✓ | COOL END | 00:20 | — | — | Time | above | — | Set Fan | ✓ | 30 # BTB |
+| 10 | ✓ | TP | 03:30 | — | — | Time | above | — | Set Burner | ✓ | 60 # lower B60 earlier |
+| 11 | ✗ | TP | 04:00 | — | — | Time | above | — | Set Fan | ✓ | 80 # no |
+| 12 | ✗ | DRY END | 00:10 | — | — | Time | above | — | Set Burner | ✓ | 65 # no |
+| 13 | ✗ | DRY END | 00:30 | — | — | Time | above | — | Set Burner | ✓ | 60 # no |
+| 14 | ✓ | DRY END | 02:30 | — | — | Time | Cond(3) | — | Set Burner | ✓ | 55 # pre-FC |
+| 15 | ✓ | FC START | 00:45 | — | — | Time | above | — | Set Burner | ✓ | 50  # dont stall FC |
+| 16 | ✓ | FC START | 01:00 | — | — | Time | above | — | Pop-up message | ✓ | Drop around 1:30 devel by 194+ (avoid FLICK) |
+| 17 | ✓ | FC START | 01:10 | — | — | Time | above | — | Set Burner | ✓ | 45 # late devel avoid ashy |
+| 18 | ✓ | FC END | 00:05 | — | — | Time | above | — | Set Burner | ✓ | 40 # late devel avoid ashy |
+| 19 | ✓ | DROP | 00:01 | — | — | Time | above | — | Set Burner | ✓ | 0 |
+| 20 | ✓ | DROP | 00:10 | — | — | Time | above | — | Set Fan | ✓ | 100 |
+| 21 | ✓ | COOL END | 00:15 | — | — | Time | above | — | Set Burner | ✓ | 20 # BTB |
+| 22 | ✓ | COOL END | 00:20 | — | — | Time | above | — | Set Fan | ✓ | 30 # BTB |
