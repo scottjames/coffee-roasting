@@ -322,6 +322,18 @@ class TestCLI:
             parsed = json.loads(captured.out)
             assert 'roast_id' in parsed
     
+    def test_json_output_format_multiple_files(self, temp_alog_file, temp_minimal_alog, capsys):
+        """Test JSON output for multiple files"""
+        with patch('sys.argv', ['artisanc', temp_alog_file, temp_minimal_alog, '--metrics', '-o', 'json']):
+            from artisanc_cli import main
+            main()
+            captured = capsys.readouterr()
+            parsed = json.loads(captured.out)
+            assert isinstance(parsed, list)
+            assert len(parsed) == 2
+            assert parsed[0]['roast_id'] == 'test-uuid-12345'
+            assert parsed[1]['roast_id'] == 'minimal-uuid'
+
     def test_markdown_output_format(self, temp_alog_file, capsys):
         """Test -o md flag"""
         with patch('sys.argv', ['artisanc', temp_alog_file, '--metrics', '-o', 'md']):
@@ -360,8 +372,20 @@ class TestCLI:
         """Test error handling for nonexistent file"""
         with patch('sys.argv', ['artisanc', '/nonexistent/file.alog', '--metrics']):
             from artisanc_cli import main
-            with pytest.raises(SystemExit):
-                main()
+            # Should not raise; main will report the error and continue
+            main()
+            captured = capsys.readouterr()
+            assert 'Error: File not found' in captured.err
+
+    def test_metrics_display_multiple_files(self, temp_alog_file, temp_minimal_alog, capsys):
+        """Test supplying multiple files to the CLI"""
+        with patch('sys.argv', ['artisanc', temp_alog_file, temp_minimal_alog, '--metrics']):
+            from artisanc_cli import main
+            main()
+            captured = capsys.readouterr()
+            # Should include separators for both files
+            assert f"--- {temp_alog_file} ---" in captured.out
+            assert f"--- {temp_minimal_alog} ---" in captured.out
 
 
 if __name__ == '__main__':

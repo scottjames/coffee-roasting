@@ -478,7 +478,11 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
 
-    parser.add_argument("file", help="Path to .alog file")
+    parser.add_argument(
+        "files",
+        nargs="+",
+        help="Path to one or more .alog file(s)",
+    )
 
     # Display options
     display_group = parser.add_mutually_exclusive_group()
@@ -518,69 +522,80 @@ def main():
 
     args = parser.parse_args()
 
-    try:
-        alog = AlogParser(args.file)
+    # Read update input once from stdin (if update mode)
+    input_text = None
+    if args.update:
+        if not (args.roast or args.cup):
+            print(
+                "Error: --update requires either --roast or --cup to specify which notes to update",
+                file=sys.stderr,
+            )
+            sys.exit(1)
 
-        # Handle update mode
-        if args.update:
-            if not (args.roast or args.cup):
-                print(
-                    "Error: --update requires either --roast or --cup to specify which notes to update",
-                    file=sys.stderr,
-                )
-                sys.exit(1)
+        input_text = sys.stdin.read().strip()
 
-            # Read from stdin
-            input_text = sys.stdin.read().strip()
+    formatter = OutputFormatter()
+    metric_results = []
 
-            if args.roast:
-                alog.update_roast_notes(input_text, append=args.append)
-                print(
-                    f"Updated roasting notes ({'appended' if args.append else 'overwritten'})"
-                )
-            elif args.cup:
-                alog.update_cup_notes(input_text, append=args.append)
-                print(
-                    f"Updated cupping notes ({'appended' if args.append else 'overwritten'})"
-                )
+    # Process each file separately so one bad file doesn't stop the rest
+    for file in args.files:
+        try:
+            alog = AlogParser(file)
 
-            alog.save()
-            print(f"Saved changes to {args.file}")
+            # Handle update mode
+            if args.update:
+                if args.roast:
+                    alog.update_roast_notes(input_text, append=args.append)
+                    print(
+                        f"Updated roasting notes for {file} ({'appended' if args.append else 'overwritten'})"
+                    )
+                elif args.cup:
+                    alog.update_cup_notes(input_text, append=args.append)
+                    print(
+                        f"Updated cupping notes for {file} ({'appended' if args.append else 'overwritten'})"
+                    )
 
-        # Handle display mode
-        else:
-            formatter = OutputFormatter()
+                alog.save()
+                print(f"Saved changes to {file}")
+                continue
 
-            if args.metrics:
+            # Handle display mode
+            if args.metrics or not (args.roast or args.cup):
                 metrics = alog.get_metrics()
+                if args.output == "json":
+                    metric_results.append(metrics)
+                    continue
+
                 output = formatter.format_metrics(metrics, args.output)
+                print(f"--- {file} ---")
                 print(output)
 
             elif args.roast:
                 notes = alog.get_roast_notes()
                 output = formatter.format_notes(notes, "Roasting Notes", args.output)
+                print(f"--- {file} ---")
                 print(output)
 
             elif args.cup:
                 notes = alog.get_cup_notes()
                 output = formatter.format_notes(notes, "Cupping Notes", args.output)
+                print(f"--- {file} ---")
                 print(output)
 
-            else:
-                # Default: show metrics
-                metrics = alog.get_metrics()
-                output = formatter.format_metrics(metrics, args.output)
-                print(output)
+        except FileNotFoundError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            # continue processing remaining files
+            continue
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            continue
+        except Exception as e:
+            print(f"Unexpected error processing {file}: {e}", file=sys.stderr)
+            continue
 
-    except FileNotFoundError as e:
-        print(f"Error: {e}", file=sys.stderr)
-        sys.exit(1)
-    except ValueError as e:
-        print(f"Error: {e}", file=sys.stderr)
-        sys.exit(1)
-    except Exception as e:
-        print(f"Unexpected error: {e}", file=sys.stderr)
-        sys.exit(1)
+    if args.output == "json" and metric_results:
+        payload = metric_results[0] if len(metric_results) == 1 else metric_results
+        print(json.dumps(payload, indent=2))
 
 
 if __name__ == "__main__":
