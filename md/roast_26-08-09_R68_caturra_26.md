@@ -7,7 +7,7 @@
 **Batch Size**: 250.0g → 208.0g  
 **Roast Batch**: R68(2)
 **Title**: Caturra 2608
-**Beans**: caturra_2608_nicaragua\nPrimos Coffee 10lb purchased 2026/07\ndensity vol 702 gm/L\ndensity bean 1234 gm/L\n\n\n  
+**Beans**: caturra_2608_nicaragua\nPrimos Coffee 10lb purchased 2026/07\ndensity vol 702 gm/L\ndensity bean 1234 gm/L\n\nDE =~ 148\nFC at 180\n\n  
 **Color**: 0.0  
 **Weight Loss**: 16.8%  
 **DTR**: 48/31/22  
