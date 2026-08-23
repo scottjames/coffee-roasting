@@ -52,4 +52,5 @@ This directory contains automatically generated analysis reports from alarm conf
 - [alarms-22-250g](md/alarms-22-250g.md) - added 2026-05-24 08:28:57
 - [alarms-23-250g](md/alarms-23-250g.md) - added 2026-06-11 09:01:46
 - [alarms-24-250g-ld](md/alarms-24-250g-ld.md) - added 2026-07-08 09:15:29
-- [alarms-25-250g-hd-caturra](md/alarms-25-250g-hd-caturra.md) - added 2026-08-13 09:23:25
+- [alarms-25-250g-hd-caturra](md/alarms-25-250g-hd-caturra.md) - added 2026-08-23 09:39:03
+- [alarms-26-250g-hd-caturra](md/alarms-26-250g-hd-caturra.md) - added 2026-08-23 09:39:03
