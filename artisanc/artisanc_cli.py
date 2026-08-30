@@ -567,19 +567,22 @@ def main():
                     continue
 
                 output = formatter.format_metrics(metrics, args.output)
-                print(f"--- {file} ---")
+                print(f"{file}")
+                print(f"---")
                 print(output)
 
             elif args.roast:
                 notes = alog.get_roast_notes()
                 output = formatter.format_notes(notes, "Roasting Notes", args.output)
-                print(f"--- {file} ---")
+                print(f"{file}")
+                print(f"---")
                 print(output)
 
             elif args.cup:
                 notes = alog.get_cup_notes()
                 output = formatter.format_notes(notes, "Cupping Notes", args.output)
-                print(f"--- {file} ---")
+                print(f"{file}")
+                print(f"---")
                 print(output)
 
         except FileNotFoundError as e:
