@@ -1,4 +1,5 @@
---- logs/roast_26-08-23_R69_caturra_26.alog ---
+logs/roast_26-08-23_R69_caturra_26.alog
+---
 # Roast Profile Metrics
 
 ## Basic Information
