@@ -60,7 +60,7 @@ ALARM_ACTION = {
     0:  "Pop-up message",
     1:  "Call program",
     2:  "Set SV bottom",
-    3:  "Set Fan",   # TC4 (documented duplicate in artisan source)
+    3:  "Set Air",   # TC4 (documented duplicate in artisan source)
     4:  "Set SV",
     5:  "Start timer",
     6:  "Set Burner", # TC4
