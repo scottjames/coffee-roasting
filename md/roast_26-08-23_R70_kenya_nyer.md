@@ -1,4 +1,5 @@
---- logs/roast_26-08-23_R70_kenya_nyer.alog ---
+logs/roast_26-08-23_R70_kenya_nyer.alog
+---
 # Roast Profile Metrics
 
 ## Basic Information
