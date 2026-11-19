@@ -94,3 +94,4 @@ See links below for roast reports
 - [**R74(2)** - roast_26-11-01_R74_kenya_nyer](roast_26-11-01_R74_kenya_nyer.md) - [image](/coffee-roasting/logs/img/roast_26-11-01_R74_kenya_nyer.png)
 - [**R73(1)** - roast_26-11-01_R73_caturra_26](roast_26-11-01_R73_caturra_26.md) - [image](/coffee-roasting/logs/img/roast_26-11-01_R73_caturra_26.png)
 - [**R75(1)** - roast_26-11-15_R75_kenya_nyer](roast_26-11-15_R75_kenya_nyer.md) - [image](/coffee-roasting/logs/img/roast_26-11-15_R75_kenya_nyer.png)
+- [**R76(2)** - roast_26-11-15_R76_caturra_26](roast_26-11-15_R76_caturra_26.md) - [image](/coffee-roasting/logs/img/roast_26-11-15_R76_caturra_26.png)
