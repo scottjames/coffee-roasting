@@ -8,7 +8,7 @@ logs/roast_26-11-15_R76_caturra_26.alog
 **Batch Size**: 250.0g → 211.0g  
 **Roast Batch**: R76(2)
 **Title**: caturra_2608
-**Beans**: caturra_2608_nicaragua\nPrimos Coffee 10lb purchased 2026/07\ndensity 702 gm/L\ndensity only bean (water displace air) 1234 gm/L\n\n\n  
+**Beans**: caturra_2608_nicaragua\nPrimos Coffee 10lb purchased 2026/07\ndensity 702 gm/L\ndensity only bean (water displace air) 1234 gm/L  
 **Color**: 0.0  
 **Weight Loss**: 15.6%  
 **DTR**: 46/35/19  
@@ -20,7 +20,7 @@ logs/roast_26-11-15_R76_caturra_26.alog
 | CHARGE | 0:00 | 152.9 | 151.1 | - |
 | TP | 1:04 | 141.7 | 115.9 | - |
 | DE | 4:24 | 188.4 | 150.2 | - |
-| FCs | 7:45 | 205.8 | 179.2 | 7.6 |
+| FCs | 7:45 | 205.8 | 179.2 | 7.7 |
 | SCs | 5:17 | 191.4 | 156.9 | - |
 | DROP | 9:36 | 214.1 | 190.7 | - |
 
